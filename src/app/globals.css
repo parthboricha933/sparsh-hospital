@@ -220,6 +220,14 @@
   background-clip: text;
 }
 
+/* Gradient text - warm accent variant */
+.gradient-text-warm {
+  background: linear-gradient(135deg, #00E5FF, #0066FF, #66B2FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* Canvas container for Three.js */
 .three-canvas-container canvas {
   outline: none !important;
@@ -234,4 +242,27 @@ html {
 ::selection {
   background: rgba(0, 212, 255, 0.3);
   color: #FFFFFF;
+}
+
+/* Hero building window twinkle */
+@keyframes window-twinkle {
+  0%, 100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Smooth pulse ring for scroll indicator */
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.25);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(0, 212, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 212, 255, 0);
+  }
 }
