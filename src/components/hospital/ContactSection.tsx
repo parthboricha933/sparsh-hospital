@@ -5,14 +5,14 @@ import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
 
 const departments = [
-  'Cardiology',
-  'Orthopaedics',
-  'Neurology',
-  'Oncology',
-  'Gastroenterology',
-  'Pediatrics',
-  'General Surgery',
-  'ENT',
+  'Obstetrics & Maternity',
+  'Gynecologic Surgery',
+  'Fertility & IVF',
+  'Gynecologic Oncology',
+  'Urogynecology',
+  'Menopause & Wellness',
+  'Reproductive Endocrinology',
+  'General Gynecology',
 ];
 
 const contactInfo = [

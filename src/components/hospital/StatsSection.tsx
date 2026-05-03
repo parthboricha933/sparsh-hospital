@@ -5,10 +5,10 @@ import { motion, useInView } from 'framer-motion';
 
 const stats = [
   { value: 25, suffix: '+', label: 'Years of Excellence' },
-  { value: 200, suffix: '+', label: 'Expert Doctors' },
-  { value: 50, suffix: '+', label: 'Specialities' },
-  { value: 100000, suffix: '+', label: 'Happy Patients', display: '100K+' },
-  { value: 75000, suffix: '+', label: 'Surgeries Performed', display: '75K+' },
+  { value: 100, suffix: '+', label: 'Gynecologists' },
+  { value: 6, suffix: '', label: 'Sub-Specialities' },
+  { value: 50000, suffix: '+', label: 'Happy Mothers', display: '50K+' },
+  { value: 10000, suffix: '+', label: 'Successful Deliveries', display: '10K+' },
   { value: 150, suffix: '+', label: 'Awards & Recognitions' },
 ];
 

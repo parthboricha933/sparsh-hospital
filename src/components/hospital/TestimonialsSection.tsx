@@ -6,34 +6,34 @@ import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const testimonials = [
   {
-    name: 'Ramesh Gupta',
-    treatment: 'Cardiac Bypass Surgery',
+    name: 'Sneha Kapoor',
+    treatment: 'High-Risk Pregnancy & Delivery',
     quote:
-      'The cardiac team at Sparsh Hospital saved my life. From diagnosis to surgery and recovery, every step was handled with extraordinary care and professionalism. I am forever grateful.',
+      'The obstetrics team at Sparsh made my high-risk pregnancy feel safe and manageable. From weekly monitoring to the final delivery, every doctor and nurse treated me with genuine warmth. My baby and I are thriving thanks to them.',
   },
   {
-    name: 'Sunita Devi',
-    treatment: 'Knee Replacement',
+    name: 'Anjali Rao',
+    treatment: 'Laparoscopic Fibroid Surgery',
     quote:
-      'After years of suffering from knee pain, the orthopaedic team at Sparsh gave me a new lease on life. The surgery was flawless and I was walking within days. Truly world-class.',
+      'After years of painful fibroids, the minimally invasive surgery at Sparsh changed my life. I was home in two days and recovered in weeks, not months. The surgical team is truly exceptional and so compassionate.',
   },
   {
-    name: 'Arun Mehta',
-    treatment: 'Cancer Treatment',
+    name: 'Deepa & Vikram Shah',
+    treatment: 'IVF Treatment',
     quote:
-      'The oncology department provided not just medical treatment but emotional support throughout my cancer journey. The personalized care plan and constant monitoring made all the difference.',
+      'We had almost given up hope after multiple failed attempts elsewhere. The fertility team at Sparsh gave us a personalised protocol and constant emotional support. Today we hold our beautiful daughter — we owe them everything.',
   },
   {
-    name: 'Priya Nair',
-    treatment: 'Neurological Treatment',
+    name: 'Lakshmi Nair',
+    treatment: 'Gynecologic Oncology',
     quote:
-      'I was diagnosed with a complex neurological condition that other hospitals struggled to identify. The team at Sparsh accurately diagnosed and treated me. Their expertise is unmatched.',
+      'Being diagnosed with cervical cancer was terrifying, but the oncology team at Sparsh guided me through every step — from surgery to recovery. They treated me like family, not just a patient. Forever grateful.',
   },
   {
-    name: 'Mohammed Ali',
-    treatment: 'Pediatric Surgery',
+    name: 'Ritu Menon',
+    treatment: 'Menopause Management',
     quote:
-      'Our child needed emergency surgery and the pediatric team at Sparsh was incredible. They kept us informed and made our child feel safe. The facility is designed with families in mind.',
+      'The menopause wellness programme at Sparsh helped me navigate a very difficult phase with dignity and confidence. The holistic approach — medical, emotional, and lifestyle support — made all the difference.',
   },
 ];
 

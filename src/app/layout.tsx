@@ -10,25 +10,24 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Sparsh Hospital — Redefining Healthcare with Precision & Compassion",
+  title: "Sparsh Gynecology Hospital — Advanced Care. Human Touch.",
   description:
-    "Sparsh Hospital is a world-class healthcare facility offering advanced medical treatments across 50+ specialities with 200+ expert doctors. Where advanced technology meets compassionate care.",
+    "Sparsh Hospital is a world-class gynecology & obstetrics facility offering advanced women's healthcare with 100+ expert gynecologists. 25+ years of excellence in gynecologic surgery, IVF, maternity care.",
   keywords: [
     "Sparsh Hospital",
-    "healthcare",
-    "hospital",
-    "medical",
-    "doctors",
-    "specialities",
-    "cardiology",
-    "orthopaedics",
-    "neurology",
+    "gynecology",
+    "obstetrics",
+    "women's health",
+    "IVF",
+    "maternity",
+    "gynecologic surgery",
+    "fertility",
   ],
-  authors: [{ name: "Sparsh Hospital" }],
+  authors: [{ name: "Sparsh Gynecology Hospital" }],
   openGraph: {
-    title: "Sparsh Hospital — Redefining Healthcare",
+    title: "Sparsh Gynecology Hospital — Advanced Care. Human Touch.",
     description:
-      "Where advanced technology meets world-class care. 25+ years of excellence in healthcare.",
+      "World-class gynecology & obstetrics care. 25+ years of excellence in women's healthcare.",
     type: "website",
   },
 };

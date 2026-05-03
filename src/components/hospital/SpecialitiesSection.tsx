@@ -2,44 +2,44 @@
 
 import { motion } from 'framer-motion';
 import {
-  HeartPulse,
-  Bone,
-  Brain,
-  Ribbon,
-  Stethoscope,
   Baby,
+  HeartPulse,
+  Sparkles,
+  ScanLine,
+  Activity,
+  Pill,
 } from 'lucide-react';
 
 const specialities = [
   {
-    icon: HeartPulse,
-    title: 'Cardiology',
-    desc: 'Advanced cardiac care including interventional procedures, bypass surgery, and comprehensive heart failure management.',
-  },
-  {
-    icon: Bone,
-    title: 'Orthopaedics',
-    desc: 'Joint replacements, sports medicine, trauma care, and minimally invasive spine surgery with rapid recovery protocols.',
-  },
-  {
-    icon: Brain,
-    title: 'Neurology',
-    desc: 'Expert treatment for stroke, epilepsy, Parkinson\'s, and other neurological conditions with advanced neuro-diagnostics.',
-  },
-  {
-    icon: Ribbon,
-    title: 'Oncology',
-    desc: 'Comprehensive cancer care with precision radiation therapy, immunotherapy, and personalized treatment plans.',
-  },
-  {
-    icon: Stethoscope,
-    title: 'Gastroenterology',
-    desc: 'Endoscopic procedures, liver disease management, and treatment for complex digestive disorders.',
-  },
-  {
     icon: Baby,
-    title: 'Pediatrics',
-    desc: 'Specialized child healthcare from neonatal intensive care to adolescent medicine in a child-friendly environment.',
+    title: 'Obstetrics & Maternity',
+    desc: 'Comprehensive prenatal to postnatal care including high-risk pregnancy management, natural birthing suites, and dedicated LDR rooms for a safe, comfortable delivery experience.',
+  },
+  {
+    icon: HeartPulse,
+    title: 'Gynecologic Surgery',
+    desc: 'Minimally invasive laparoscopic & robotic-assisted procedures for fibroids, endometriosis, ovarian cysts, and hysterectomy — faster recovery, smaller incisions, better outcomes.',
+  },
+  {
+    icon: Sparkles,
+    title: 'Fertility & IVF Centre',
+    desc: 'State-of-the-art assisted reproductive technology including IVF, IUI, ICSI, and fertility preservation with personalised protocols and consistently high success rates.',
+  },
+  {
+    icon: ScanLine,
+    title: 'Gynecologic Oncology',
+    desc: 'Specialised screening, early detection, and advanced treatment for cervical, ovarian, and uterine cancers — combining surgical expertise with compassionate support.',
+  },
+  {
+    icon: Activity,
+    title: 'Urogynecology',
+    desc: 'Expert evaluation and treatment for pelvic floor disorders, urinary incontinence, and pelvic organ prolapse using both conservative and advanced surgical approaches.',
+  },
+  {
+    icon: Pill,
+    title: 'Menopause & Wellness',
+    desc: 'Holistic menopause management including hormone replacement therapy, bone health screening, cardiovascular risk assessment, and emotional wellbeing support.',
   },
 ];
 
@@ -47,10 +47,11 @@ export default function SpecialitiesSection() {
   return (
     <section id="specialities" className="relative py-20 sm:py-28 overflow-hidden">
       {/* Background decorations */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0B1030] via-[#0A0E27] to-[#0A0E27]" />
       <div className="absolute top-0 left-0 w-full section-divider" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#0066FF]/3 blur-[120px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#0066FF]/[0.03] blur-[120px]" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -63,11 +64,11 @@ export default function SpecialitiesSection() {
             Our Expertise
           </span>
           <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-bold">
-            Centres of <span className="gradient-text">Excellence</span>
+            Gynecology Centres of <span className="gradient-text">Excellence</span>
           </h2>
           <p className="mt-4 text-white/50 max-w-2xl mx-auto">
-            World-class departments equipped with cutting-edge technology and staffed by
-            internationally trained specialists.
+            Six specialised gynecology divisions — each equipped with cutting-edge technology
+            and staffed by internationally trained women&apos;s health specialists.
           </p>
           <div className="mt-4 w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-[#0066FF] to-[#00D4FF]" />
         </motion.div>

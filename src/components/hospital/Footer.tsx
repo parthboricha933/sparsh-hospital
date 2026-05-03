@@ -7,21 +7,21 @@ import { Plus, Phone, Mail, MapPin, ArrowUp, Facebook, Twitter, Instagram, Linke
 const quickLinks = [
   { name: 'Home', href: '#home' },
   { name: 'About Us', href: '#about' },
-  { name: 'Specialities', href: '#specialities' },
+  { name: 'Services', href: '#specialities' },
   { name: 'Our Doctors', href: '#doctors' },
   { name: 'Testimonials', href: '#testimonials' },
   { name: 'Book Appointment', href: '#contact' },
 ];
 
 const specialities = [
-  'Cardiology',
-  'Orthopaedics',
-  'Neurology',
-  'Oncology',
-  'Gastroenterology',
-  'Pediatrics',
-  'Urology',
-  'ENT',
+  'Obstetrics & Maternity',
+  'Gynecologic Surgery',
+  'Fertility & IVF',
+  'Gynecologic Oncology',
+  'Urogynecology',
+  'Menopause & Wellness',
+  'Reproductive Endocrinology',
+  'General Gynecology',
 ];
 
 const socialLinks = [
@@ -70,12 +70,12 @@ export default function Footer() {
               </div>
               <span className="text-xl font-bold">
                 <span className="text-white">Sparsh</span>{' '}
-                <span className="text-[#00D4FF]">Hospital</span>
+                <span className="text-[#00D4FF]">Gynecology</span>
               </span>
             </a>
             <p className="text-white/40 text-sm leading-relaxed mb-6">
-              Sparsh Hospital has been a beacon of healthcare excellence for over 25 years,
-              combining cutting-edge technology with compassionate patient care.
+              Sparsh Hospital has been a beacon of gynecology excellence for over 25 years,
+              combining cutting-edge technology with compassionate women's healthcare.
             </p>
             <div className="flex items-center gap-3">
               {socialLinks.map((social) => (
@@ -110,7 +110,7 @@ export default function Footer() {
 
           {/* Specialities */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Specialities</h3>
+            <h3 className="text-white font-semibold mb-4">Our Services</h3>
             <ul className="space-y-2.5">
               {specialities.map((spec) => (
                 <li key={spec}>

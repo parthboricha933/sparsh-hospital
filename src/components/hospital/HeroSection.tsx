@@ -22,16 +22,16 @@ const ParticleBackground = dynamic(() => import('./ParticleBackground'), { ssr: 
 
 /* ─── Data ─── */
 const stats = [
-  { icon: Building2, value: '25+', label: 'Departments' },
-  { icon: Users, value: '100+', label: 'Doctors' },
+  { icon: Building2, value: '25+', label: 'Years of Care' },
+  { icon: Users, value: '100+', label: 'Gynecologists' },
   { icon: Clock, value: '24/7', label: 'Emergency' },
-  { icon: Heart, value: '50K+', label: 'Happy Patients' },
+  { icon: Heart, value: '50K+', label: 'Happy Mothers' },
 ];
 
 const trustBadges = [
-  'NABH Accredited',
-  'ISO 9001:2015',
-  'JCI Standards',
+  'NABH Certified',
+  'Gynecology Excellence',
+  'Patient Safety Focus',
 ];
 
 /* ─── Stagger container variant ─── */
@@ -120,8 +120,8 @@ export default function HeroSection() {
               variants={fadeUp}
               className="mt-5 sm:mt-7 text-base sm:text-lg lg:text-xl text-white/55 max-w-xl leading-relaxed"
             >
-              World‑class treatment powered by cutting‑edge technology, delivered with
-              compassionate healing that puts you at the heart of everything we do.
+              World‑class gynecology & obstetrics care powered by cutting‑edge technology,
+              delivered with compassionate healing that puts every woman at the heart of everything we do.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -184,7 +184,7 @@ export default function HeroSection() {
                   <span className="ml-1.5 text-sm font-bold text-white">4.9</span>
                 </div>
                 <span className="text-xs text-white/40 font-medium">
-                  Trusted by 50,000+ patients
+                  Trusted by 50,000+ mothers & families
                 </span>
               </div>
             </motion.div>
@@ -300,7 +300,7 @@ export default function HeroSection() {
                 {/* Card info bar */}
                 <div className="p-5 flex items-center justify-between">
                   <div>
-                    <h3 className="font-bold text-white text-sm">Sparsh Hospital</h3>
+                    <h3 className="font-bold text-white text-sm">Sparsh Gynecology Hospital</h3>
                     <p className="text-xs text-white/40 mt-0.5">
                       Bangalore, India
                     </p>

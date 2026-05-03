@@ -6,51 +6,51 @@ import { User, Star } from 'lucide-react';
 const doctors = [
   {
     name: 'Dr. Ananya Sharma',
-    speciality: 'Cardiology',
-    experience: '18+ Years',
-    qualification: 'MBBS, MD, DM Cardiology',
-  },
-  {
-    name: 'Dr. Rajesh Kumar',
-    speciality: 'Orthopaedics',
-    experience: '22+ Years',
-    qualification: 'MBBS, MS Ortho, Fellowship',
+    speciality: 'Obstetrics & High-Risk Pregnancy',
+    experience: '20+ Years',
+    qualification: 'MBBS, MS OB-GYN, FRCOG',
   },
   {
     name: 'Dr. Priya Menon',
-    speciality: 'Neurology',
-    experience: '15+ Years',
-    qualification: 'MBBS, MD, DM Neurology',
-  },
-  {
-    name: 'Dr. Vikram Singh',
-    speciality: 'Oncology',
-    experience: '20+ Years',
-    qualification: 'MBBS, MD, DM Oncology',
-  },
-  {
-    name: 'Dr. Meera Patel',
-    speciality: 'Gastroenterology',
-    experience: '16+ Years',
-    qualification: 'MBBS, MD, DM Gastro',
-  },
-  {
-    name: 'Dr. Arun Desai',
-    speciality: 'Pediatrics',
-    experience: '14+ Years',
-    qualification: 'MBBS, MD Pediatrics, Fellowship',
+    speciality: 'Laparoscopic & Robotic Surgery',
+    experience: '18+ Years',
+    qualification: 'MBBS, MS OB-GYN, Fellowship',
   },
   {
     name: 'Dr. Kavitha Reddy',
-    speciality: 'Cardiac Surgery',
-    experience: '19+ Years',
-    qualification: 'MBBS, MS, MCh CTVS',
+    speciality: 'Fertility & IVF Specialist',
+    experience: '16+ Years',
+    qualification: 'MBBS, MS OB-GYN, FRCOG',
   },
   {
-    name: 'Dr. Sanjay Verma',
-    speciality: 'Urology',
+    name: 'Dr. Meera Patel',
+    speciality: 'Gynecologic Oncology',
     experience: '17+ Years',
-    qualification: 'MBBS, MS, MCh Urology',
+    qualification: 'MBBS, MS, Fellowship Gyn-Onc',
+  },
+  {
+    name: 'Dr. Sunita Desai',
+    speciality: 'Urogynecology & Pelvic Floor',
+    experience: '14+ Years',
+    qualification: 'MBBS, MS OB-GYN, Fellowship',
+  },
+  {
+    name: 'Dr. Ritu Kapoor',
+    speciality: 'Menopause & Wellness',
+    experience: '15+ Years',
+    qualification: 'MBBS, MD OB-GYN, Certification',
+  },
+  {
+    name: 'Dr. Nandini Iyer',
+    speciality: 'Maternal-Fetal Medicine',
+    experience: '12+ Years',
+    qualification: 'MBBS, MS OB-GYN, DM MFM',
+  },
+  {
+    name: 'Dr. Deepa Nair',
+    speciality: 'Reproductive Endocrinology',
+    experience: '13+ Years',
+    qualification: 'MBBS, MS OB-GYN, Fellowship',
   },
 ];
 
@@ -74,11 +74,11 @@ export default function DoctorsSection() {
             Our Team
           </span>
           <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-bold">
-            Expert Medical <span className="gradient-text">Professionals</span>
+            Expert Gynecology <span className="gradient-text">Specialists</span>
           </h2>
           <p className="mt-4 text-white/50 max-w-2xl mx-auto">
-            Our team of renowned specialists brings decades of experience and a commitment
-            to delivering the best possible outcomes for every patient.
+            Our team of renowned gynecologists and obstetricians brings decades of experience
+            and a commitment to delivering the best possible outcomes for every woman.
           </p>
           <div className="mt-4 w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-[#0066FF] to-[#00D4FF]" />
         </motion.div>
