@@ -6,8 +6,6 @@ import { useLanguage } from '@/context/LanguageContext';
 
 const stats = [
   { value: 8, suffix: '+', labelKey: 'stats.years' },
-  { value: 100, suffix: '+', labelKey: 'stats.gynecologists' },
-  { value: 5, suffix: '', labelKey: 'stats.subSpecialities' },
   { value: 50000, suffix: '+', labelKey: 'stats.happyMothers', display: '50K+' },
   { value: 10000, suffix: '+', labelKey: 'stats.deliveries', display: '10K+' },
   { value: 150, suffix: '+', labelKey: 'stats.awards' },
@@ -101,7 +99,7 @@ export default function StatsSection() {
         </motion.div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.labelKey}

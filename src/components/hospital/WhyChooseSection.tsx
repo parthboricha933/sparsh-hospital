@@ -4,7 +4,6 @@ import { useRef, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import {
   Clock,
-  HeartPulse,
   Microscope,
   UserCheck,
   ShieldCheck,
@@ -24,14 +23,6 @@ const features = [
     color: '#00D4FF',
     gradient: 'from-[#00D4FF]/20 to-[#0066FF]/10',
     ringColor: 'rgba(0,212,255,0.15)',
-  },
-  {
-    icon: HeartPulse,
-    titleKey: 'why.feature2Title',
-    descKey: 'why.feature2Desc',
-    color: '#FF6B8A',
-    gradient: 'from-[#FF6B8A]/20 to-[#FF8FA3]/10',
-    ringColor: 'rgba(255,107,138,0.15)',
   },
   {
     icon: Microscope,
