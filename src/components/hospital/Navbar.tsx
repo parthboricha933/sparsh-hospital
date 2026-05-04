@@ -16,7 +16,6 @@ export default function Navbar() {
     { name: t('nav.services'), href: '#specialities' },
     { name: t('nav.womensHealth'), href: '#womens-health' },
     { name: t('nav.doctors'), href: '#doctors' },
-    { name: t('nav.appointment'), href: '#appointment' },
     { name: t('nav.contact'), href: '#contact' },
   ];
 
@@ -87,10 +86,10 @@ export default function Navbar() {
                 <span>{t('nav.emergency')}</span>
               </a>
               <a
-                href="#appointment"
+                href="#contact"
                 className="btn-glow px-5 py-2.5 rounded-full bg-gradient-to-r from-[#0066FF] to-[#0044CC] text-white text-sm font-semibold"
               >
-                {t('nav.bookAppointment')}
+                {t('nav.contact')}
               </a>
             </div>
 
@@ -159,11 +158,11 @@ export default function Navbar() {
                 </div>
                 <div className="mt-auto flex flex-col gap-3">
                   <a
-                    href="#appointment"
+                    href="#contact"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="btn-glow w-full text-center py-3 rounded-full bg-gradient-to-r from-[#0066FF] to-[#0044CC] text-white font-semibold"
                   >
-                    {t('nav.bookAppointment')}
+                    {t('nav.contact')}
                   </a>
                   <a
                     href="tel:+911234567890"

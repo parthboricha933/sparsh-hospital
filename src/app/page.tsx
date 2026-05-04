@@ -10,7 +10,6 @@ import WomensHealthSection from '@/components/hospital/WomensHealthSection';
 import DoctorsSection from '@/components/hospital/DoctorsSection';
 import StatsSection from '@/components/hospital/StatsSection';
 import ContactSection from '@/components/hospital/ContactSection';
-import AppointmentBookingSection from '@/components/hospital/AppointmentBookingSection';
 import WhyChooseSection from '@/components/hospital/WhyChooseSection';
 import Footer from '@/components/hospital/Footer';
 import LanguageGateway from '@/components/hospital/LanguageGateway';
@@ -36,7 +35,6 @@ export default function Home() {
           <DoctorsSection />
           <StatsSection />
           <WhyChooseSection />
-          <AppointmentBookingSection />
           <ContactSection />
         </main>
         <Footer />
