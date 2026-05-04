@@ -31,8 +31,8 @@ export const translations: Translations = {
 
   // ─── Hero Section ───
   'hero.trustBadge': { en: 'ISO Certified  ·  Gynecology Excellence  ·  Patient Safety Focus', gu: 'ISO પ્રમાણિત  ·  ગાયનેકોલોજી ઉત્કૃષ્ટતા  ·  દર્દી સુરક્ષા ધ્યાન' },
-  'hero.headline1': { en: 'Advanced Care.', gu: 'અદ્યતન સંભાળ.' },
-  'hero.headline2': { en: 'Human Touch.', gu: 'માનવીય સ્પર્શ.' },
+  'hero.headline1': { en: 'Advanced Care.', gu: 'સ્પર્શ જેવો સ્નેહ,' },
+  'hero.headline2': { en: 'Human Touch.', gu: 'સારવારમાં વિશ્વાસ.' },
   'hero.subheadline': { en: 'World-class gynecology & obstetrics care powered by cutting-edge technology, delivered with compassionate healing that puts every woman at the heart of everything we do.', gu: 'અત્યાધુનિક તકનીક દ્વારા સંચાલિત વિશ્વસ્તરીય ગાયનેકોલોજી અને પ્રસૂતિ સંભાળ, દરેક સ્ત્રીને અમારા દરેક કાર્યના કેન્દ્રમાં રાખીને કરુણામય સારવાર આપતી.' },
   'hero.bookAppointment': { en: 'Book Appointment', gu: 'એપોઇન્ટમેન્ટ બુક કરો' },
   'hero.emergencyHelp': { en: 'Emergency Help', gu: 'ઈમરજન્સી મદદ' },
