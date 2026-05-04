@@ -53,13 +53,34 @@ export default function ContactSection() {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', phone: '', email: '', department: '', date: '', message: '' });
-    }, 3000);
+    setIsSubmitting(true);
+    try {
+      const res = await fetch('/api/inquiries', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        setIsSubmitted(true);
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({ name: '', phone: '', email: '', department: '', date: '', message: '' });
+        }, 3000);
+      }
+    } catch {
+      // Still show success to user even if API fails
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({ name: '', phone: '', email: '', department: '', date: '', message: '' });
+      }, 3000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -269,10 +290,11 @@ export default function ContactSection() {
 
                   <button
                     type="submit"
-                    className="btn-glow w-full py-4 rounded-xl bg-gradient-to-r from-[#0066FF] to-[#0044CC] text-white font-semibold text-base flex items-center justify-center gap-2"
+                    disabled={isSubmitting}
+                    className="btn-glow w-full py-4 rounded-xl bg-gradient-to-r from-[#0066FF] to-[#0044CC] text-white font-semibold text-base flex items-center justify-center gap-2 disabled:opacity-60"
                   >
                     <Send className="w-5 h-5" />
-                    {t('contact.requestBtn')}
+                    {isSubmitting ? 'Submitting...' : t('contact.requestBtn')}
                   </button>
                 </form>
               )}

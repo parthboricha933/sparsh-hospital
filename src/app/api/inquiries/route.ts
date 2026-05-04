@@ -6,7 +6,7 @@ import { prisma } from '@/lib/prisma';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, phone, department, doctor, date, time, message } = body;
+    const { name, phone, email, department, doctor, date, time, message } = body;
 
     if (!name || !phone || !department || !date) {
       return NextResponse.json(
@@ -19,6 +19,7 @@ export async function POST(request: NextRequest) {
       data: {
         name,
         phone,
+        email: email || null,
         department,
         doctor: doctor || null,
         date,

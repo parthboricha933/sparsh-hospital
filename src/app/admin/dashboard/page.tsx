@@ -29,6 +29,7 @@ interface Inquiry {
   id: string;
   name: string;
   phone: string;
+  email: string | null;
   department: string;
   doctor: string | null;
   date: string;
@@ -130,7 +131,12 @@ function InquiryModal({ inquiry, onClose, onStatusChange, onDelete }: {
             </div>
             <div>
               <div className="text-white font-semibold">{inquiry.name}</div>
-              <div className="text-white/40 text-sm">{inquiry.phone}</div>
+              <div className="text-white/40 text-sm flex items-center gap-1">
+                <Phone className="w-3 h-3" /> {inquiry.phone}
+              </div>
+              {inquiry.email && (
+                <div className="text-white/30 text-xs mt-0.5">{inquiry.email}</div>
+              )}
             </div>
           </div>
 
