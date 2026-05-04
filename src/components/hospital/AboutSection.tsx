@@ -434,11 +434,10 @@ export default function AboutSection() {
 
         {/* ── Floating Glowing Counters ── */}
         <div className="mt-20 sm:mt-24">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+          <div className="grid grid-cols-3 gap-5 sm:gap-6">
             <GlowCounter value={8} suffix="+" label={t('about.counterYears')} delay={0} />
-            <GlowCounter value={100} suffix="+" label={t('about.counterExperts')} delay={0.08} />
-            <GlowCounter value={50000} suffix="+" label={t('about.counterMothers')} delay={0.16} display="50K+" />
-            <GlowCounter value={10000} suffix="+" label={t('about.counterDeliveries')} delay={0.24} display="10K+" />
+            <GlowCounter value={50000} suffix="+" label={t('about.counterMothers')} delay={0.08} display="50K+" />
+            <GlowCounter value={10000} suffix="+" label={t('about.counterDeliveries')} delay={0.16} display="10K+" />
           </div>
         </div>
       </div>

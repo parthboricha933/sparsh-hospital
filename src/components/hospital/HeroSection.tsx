@@ -11,7 +11,6 @@ import {
   ShieldCheck,
   Building2,
   Stethoscope,
-  Users,
   Clock,
   Heart,
   Star,
@@ -24,7 +23,6 @@ const ParticleBackground = dynamic(() => import('./ParticleBackground'), { ssr: 
 /* ─── Data ─── */
 const stats = [
   { icon: Building2, value: '8+', labelKey: 'hero.statYears' },
-  { icon: Users, value: '100+', labelKey: 'hero.statGynecologists' },
   { icon: Clock, value: '24/7', labelKey: 'hero.statEmergency' },
   { icon: Heart, value: '50K+', labelKey: 'hero.statHappyMothers' },
 ];
@@ -327,7 +325,7 @@ export default function HeroSection() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="glass-card p-5 sm:p-7">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-5 sm:gap-8">
+            <div className="grid grid-cols-3 gap-5 sm:gap-8">
               {stats.map((stat, i) => (
                 <motion.div
                   key={stat.labelKey}
