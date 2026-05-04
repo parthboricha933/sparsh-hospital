@@ -45,9 +45,9 @@ export default function Navbar() {
             {/* Logo */}
             <a href="#home" className="flex items-center gap-2.5 group">
               <img
-                src="/logo.png"
-                alt="Sparsh Hospital Logo"
-                className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg object-contain group-hover:shadow-[0_0_25px_rgba(0,212,255,0.5)] transition-shadow duration-300"
+                src="/dr-vijay-ladumor.jpeg"
+                alt="Dr. Vijay Ladumor - Sparsh Hospital"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover border-2 border-[#00D4FF]/30 group-hover:shadow-[0_0_25px_rgba(0,212,255,0.5)] group-hover:border-[#00D4FF]/60 transition-all duration-300"
               />
               <span className="text-lg sm:text-xl font-bold tracking-tight">
                 <span className="text-white">Sparsh</span>{' '}
@@ -120,7 +120,7 @@ export default function Navbar() {
               <div className="flex flex-col h-full p-6">
                 <div className="flex justify-between items-center mb-8">
                   <div className="flex items-center gap-2">
-                    <img src="/logo.png" alt="Sparsh Hospital Logo" className="w-7 h-7 rounded object-contain" />
+                    <img src="/dr-vijay-ladumor.jpeg" alt="Dr. Vijay Ladumor - Sparsh Hospital" className="w-7 h-7 rounded-full object-cover border border-[#00D4FF]/30" />
                     <span className="text-lg font-bold">
                       <span className="text-white">Sparsh</span>{' '}
                       <span className="text-[#00D4FF]">Hospital</span>

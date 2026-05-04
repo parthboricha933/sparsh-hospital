@@ -13,6 +13,7 @@ const doctors = [
     isFounder: true,
     gradientFrom: '#0066FF',
     gradientTo: '#00D4FF',
+    photo: '/dr-vijay-ladumor.jpeg',
   },
   {
     name: 'Dr. Parita Baldaniya',
@@ -22,6 +23,7 @@ const doctors = [
     isFounder: false,
     gradientFrom: '#00E5FF',
     gradientTo: '#0066FF',
+    photo: null,
   },
 ];
 
@@ -85,15 +87,23 @@ export default function DoctorsSection() {
               <div className="relative z-10">
                 {/* Avatar */}
                 <div
-                  className="w-24 h-24 mx-auto mb-5 rounded-2xl flex items-center justify-center border border-white/10 group-hover:border-[#00D4FF]/30 transition-colors duration-300 relative"
-                  style={{
+                  className="w-24 h-24 mx-auto mb-5 rounded-2xl flex items-center justify-center border border-white/10 group-hover:border-[#00D4FF]/30 transition-colors duration-300 relative overflow-hidden"
+                  style={doc.photo ? {} : {
                     background: `linear-gradient(135deg, ${doc.gradientFrom}20, ${doc.gradientTo}15)`,
                   }}
                 >
-                  <User className="w-10 h-10 text-[#00D4FF]" />
+                  {doc.photo ? (
+                    <img
+                      src={doc.photo}
+                      alt={doc.name}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <User className="w-10 h-10 text-[#00D4FF]" />
+                  )}
 
                   {/* Verified badge */}
-                  <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-green-500/20 border border-green-500/30 flex items-center justify-center">
+                  <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-green-500/20 border border-green-500/30 flex items-center justify-center z-10">
                     <ShieldCheck className="w-3.5 h-3.5 text-green-400" />
                   </div>
 

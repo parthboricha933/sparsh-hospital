@@ -81,7 +81,6 @@ export const translations: Translations = {
   'about.timeline2023': { en: '5,000+ successful deliveries milestone reached', gu: '5,000+ સફળ ડિલિવરીનો માઈલસ્ટોન પાર' },
   'about.timeline2025': { en: 'Advanced gynecologic diagnostics & minimally invasive surgery wing expanded', gu: 'અદ્યતન ગાયનેકોલોજિક ડાયગ્નોસ્ટિક્સ અને મિનિમલી ઈન્વેસિવ સર્જરી વિંગ વિસ્તૃત' },
   'about.counterYears': { en: 'Years of Excellence', gu: 'ઉત્કૃષ્ટતાના વર્ષો' },
-  'about.counterExperts': { en: 'Gynecology Experts', gu: 'ગાયનેકોલોજી નિષ્ણાતો' },
   'about.counterMothers': { en: 'Happy Mothers', gu: 'ખુશ માતાઓ' },
   'about.counterDeliveries': { en: 'Successful Deliveries', gu: 'સફળ ડિલિવરીઓ' },
 

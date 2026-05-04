@@ -232,8 +232,12 @@ export default function WomensHealthSection() {
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
               {/* Doctor Avatar */}
               <div className="flex-shrink-0">
-                <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl bg-gradient-to-br from-[#0066FF]/20 to-[#00D4FF]/20 border border-white/10 flex items-center justify-center relative group">
-                  <Stethoscope className="w-14 h-14 sm:w-16 sm:h-16 text-[#00D4FF]" />
+                <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl border border-white/10 overflow-hidden relative group">
+                  <img
+                    src="/dr-vijay-ladumor.jpeg"
+                    alt="Dr. Vijay J. Ladumor"
+                    className="w-full h-full object-cover"
+                  />
                   {/* Pulse ring */}
                   <motion.div
                     className="absolute inset-0 rounded-2xl border-2 border-[#00D4FF]/20"
@@ -241,7 +245,7 @@ export default function WomensHealthSection() {
                     transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
                   />
                   {/* Verified badge */}
-                  <div className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-green-500/20 border border-green-500/30 flex items-center justify-center">
+                  <div className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-green-500/20 border border-green-500/30 flex items-center justify-center z-10">
                     <ShieldCheck className="w-4 h-4 text-green-400" />
                   </div>
                 </div>

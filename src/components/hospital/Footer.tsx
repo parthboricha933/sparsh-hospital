@@ -66,9 +66,9 @@ export default function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <a href="#home" className="flex items-center gap-2.5 mb-5">
               <img
-                src="/logo.png"
-                alt="Sparsh Hospital Logo"
-                className="w-9 h-9 rounded-lg object-contain shadow-[0_0_15px_rgba(0,102,255,0.4)]"
+                src="/dr-vijay-ladumor.jpeg"
+                alt="Dr. Vijay Ladumor - Sparsh Hospital"
+                className="w-9 h-9 rounded-full object-cover border-2 border-[#00D4FF]/30 shadow-[0_0_15px_rgba(0,102,255,0.4)]"
               />
               <span className="text-xl font-bold">
                 <span className="text-white">Sparsh</span>{' '}

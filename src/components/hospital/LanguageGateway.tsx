@@ -84,11 +84,11 @@ export default function LanguageGateway() {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="mb-8"
             >
-              <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-2xl bg-gradient-to-br from-[#0066FF]/20 to-[#00D4FF]/20 border border-white/10 flex items-center justify-center shadow-[0_0_40px_rgba(0,212,255,0.15)]">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full border-2 border-[#00D4FF]/30 shadow-[0_0_40px_rgba(0,212,255,0.15)] overflow-hidden">
                 <img
-                  src="/logo.png"
-                  alt="Sparsh Hospital Logo"
-                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl object-contain"
+                  src="/dr-vijay-ladumor.jpeg"
+                  alt="Dr. Vijay Ladumor - Sparsh Hospital"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </motion.div>
