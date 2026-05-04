@@ -18,24 +18,25 @@ import {
   AlertCircle,
   ChevronDown,
 } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 /* ─── Data ─── */
-const departments = [
-  'Obstetrics & Maternity',
-  'Gynecologic Surgery',
-  'Fertility & IVF',
-  'Gynecologic Oncology',
-  'Menopause & Wellness',
-  'General Gynecology',
+const departmentKeys = [
+  'dept.obstetrics',
+  'dept.surgery',
+  'dept.fertility',
+  'dept.oncology',
+  'dept.menopause',
+  'dept.general',
 ];
 
-const doctorsByDepartment: Record<string, string[]> = {
-  'Obstetrics & Maternity': ['Dr. Vijay Ladumor', 'Dr. Ananya Sharma'],
-  'Gynecologic Surgery': ['Dr. Vijay Ladumor', 'Dr. Priya Menon'],
-  'Fertility & IVF': ['Dr. Kavitha Reddy'],
-  'Gynecologic Oncology': ['Dr. Meera Patel'],
-  'Menopause & Wellness': ['Dr. Ritu Kapoor'],
-  'General Gynecology': ['Dr. Vijay Ladumor', 'Dr. Ananya Sharma', 'Dr. Priya Menon'],
+const doctorsByDepartmentKey: Record<string, string[]> = {
+  'dept.obstetrics': ['Dr. Vijay Ladumor', 'Dr. Ananya Sharma'],
+  'dept.surgery': ['Dr. Vijay Ladumor', 'Dr. Priya Menon'],
+  'dept.fertility': ['Dr. Kavitha Reddy'],
+  'dept.oncology': ['Dr. Meera Patel'],
+  'dept.menopause': ['Dr. Ritu Kapoor'],
+  'dept.general': ['Dr. Vijay Ladumor', 'Dr. Ananya Sharma', 'Dr. Priya Menon'],
 };
 
 const timeSlots = [
@@ -208,12 +209,14 @@ function CustomSelect({
   value,
   onChange,
   name,
+  displayFn,
 }: {
   options: string[];
   placeholder: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   name: string;
+  displayFn?: (option: string) => string;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null);
@@ -228,6 +231,11 @@ function CustomSelect({
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  const getDisplay = (option: string) => {
+    if (displayFn) return displayFn(option);
+    return option;
+  };
+
   return (
     <div ref={selectRef} className="relative">
       <button
@@ -239,7 +247,7 @@ function CustomSelect({
             : 'border-white/[0.08] text-white/25 hover:border-white/15'
         } ${isOpen ? 'border-[#00D4FF]/40 shadow-[0_0_15px_rgba(0,212,255,0.08)]' : ''}`}
       >
-        <span className="truncate">{value || placeholder}</span>
+        <span className="truncate">{value ? getDisplay(value) : placeholder}</span>
         <ChevronDown
           className={`w-4 h-4 text-[#00D4FF]/50 flex-shrink-0 transition-transform duration-300 ${
             isOpen ? 'rotate-180' : ''
@@ -270,7 +278,7 @@ function CustomSelect({
                     : 'text-white/60 hover:text-white hover:bg-white/[0.04]'
                 }`}
               >
-                {option}
+                {getDisplay(option)}
               </button>
             ))}
           </div>
@@ -284,6 +292,7 @@ function CustomSelect({
    Appointment Booking Section
    ────────────────────────────────────────────── */
 export default function AppointmentBookingSection() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -300,7 +309,7 @@ export default function AppointmentBookingSection() {
   const isInView = useInView(sectionRef, { once: true, margin: '-80px' });
 
   const availableDoctors = formData.department
-    ? doctorsByDepartment[formData.department] || []
+    ? doctorsByDepartmentKey[formData.department] || []
     : [];
 
   const handleChange = useCallback(
@@ -356,15 +365,19 @@ export default function AppointmentBookingSection() {
           className="text-center mb-14 sm:mb-18"
         >
           <span className="text-sm font-semibold text-[#00D4FF] uppercase tracking-widest">
-            Book Your Visit
+            {t('appt.subtitle')}
           </span>
           <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-bold">
-            Schedule an{' '}
-            <span className="gradient-text">Appointment</span>
+            {t('appt.heading').split(' ').map((word, i, arr) =>
+              i === arr.length - 1 ? (
+                <span key={i} className="gradient-text">{word}</span>
+              ) : (
+                <span key={i}>{word} </span>
+              )
+            )}
           </h2>
           <p className="mt-4 text-white/45 max-w-2xl mx-auto leading-relaxed">
-            Take the first step towards expert gynecological care. Fill in the form
-            below and our team will confirm your appointment within minutes.
+            {t('appt.description')}
           </p>
           <div className="mt-5 w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-[#0066FF] to-[#00D4FF]" />
         </motion.div>
@@ -398,16 +411,15 @@ export default function AppointmentBookingSection() {
                     <CheckCircle className="w-10 h-10 text-[#00D4FF]" />
                   </motion.div>
                   <h3 className="text-2xl font-bold text-white">
-                    Appointment Requested!
+                    {t('appt.successTitle')}
                   </h3>
                   <p className="text-white/50 mt-3 max-w-sm leading-relaxed">
-                    Thank you for choosing Sparsh Hospital. Our team will contact you
-                    shortly to confirm your appointment details.
+                    {t('appt.successMsg')}
                   </p>
                   <div className="mt-6 flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20">
                     <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                     <span className="text-sm font-medium text-green-400">
-                      Confirmation within 30 minutes
+                      {t('appt.confirmNote')}
                     </span>
                   </div>
                 </motion.div>
@@ -416,7 +428,7 @@ export default function AppointmentBookingSection() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Row 1: Name + Phone */}
                   <div className="grid sm:grid-cols-2 gap-5">
-                    <FormField label="Patient Name *" icon={User} delay={0.05}>
+                    <FormField label={t('appt.patientName')} icon={User} delay={0.05}>
                       <input
                         type="text"
                         name="name"
@@ -425,14 +437,14 @@ export default function AppointmentBookingSection() {
                         onFocus={() => setFocusedField('name')}
                         onBlur={() => setFocusedField(null)}
                         required
-                        placeholder="Enter your full name"
+                        placeholder={t('appt.namePlaceholder')}
                         className={`${inputBase} ${
                           focusedField === 'name' ? 'shadow-[0_0_20px_rgba(0,212,255,0.1)]' : ''
                         }`}
                       />
                     </FormField>
 
-                    <FormField label="Phone Number *" icon={Phone} delay={0.1}>
+                    <FormField label={t('appt.phoneNum')} icon={Phone} delay={0.1}>
                       <input
                         type="tel"
                         name="phone"
@@ -441,7 +453,7 @@ export default function AppointmentBookingSection() {
                         onFocus={() => setFocusedField('phone')}
                         onBlur={() => setFocusedField(null)}
                         required
-                        placeholder="+91 98765 43210"
+                        placeholder={t('appt.phonePlaceholder')}
                         className={`${inputBase} ${
                           focusedField === 'phone' ? 'shadow-[0_0_20px_rgba(0,212,255,0.1)]' : ''
                         }`}
@@ -451,18 +463,19 @@ export default function AppointmentBookingSection() {
 
                   {/* Row 2: Department + Doctor */}
                   <div className="grid sm:grid-cols-2 gap-5">
-                    <FormField label="Department *" icon={Stethoscope} delay={0.15}>
+                    <FormField label={t('appt.deptField')} icon={Stethoscope} delay={0.15}>
                       <CustomSelect
-                        options={departments}
-                        placeholder="Select department"
+                        options={departmentKeys}
+                        placeholder={t('appt.deptPlaceholder')}
                         value={formData.department}
                         onChange={handleChange}
                         name="department"
+                        displayFn={(option) => t(option)}
                       />
                     </FormField>
 
                     <FormField
-                      label="Preferred Doctor"
+                      label={t('appt.prefDoctor')}
                       icon={User}
                       delay={0.2}
                     >
@@ -470,8 +483,8 @@ export default function AppointmentBookingSection() {
                         options={availableDoctors}
                         placeholder={
                           formData.department
-                            ? 'Choose a doctor'
-                            : 'Select department first'
+                            ? t('appt.doctorPlaceholder')
+                            : t('appt.deptFirstPlaceholder')
                         }
                         value={formData.doctor}
                         onChange={handleChange}
@@ -482,7 +495,7 @@ export default function AppointmentBookingSection() {
 
                   {/* Row 3: Date + Time */}
                   <div className="grid sm:grid-cols-2 gap-5">
-                    <FormField label="Preferred Date *" icon={CalendarCheck} delay={0.25}>
+                    <FormField label={t('appt.prefDate')} icon={CalendarCheck} delay={0.25}>
                       <div className="relative">
                         <input
                           type="date"
@@ -499,10 +512,10 @@ export default function AppointmentBookingSection() {
                       </div>
                     </FormField>
 
-                    <FormField label="Preferred Time *" icon={Clock} delay={0.3}>
+                    <FormField label={t('appt.prefTime')} icon={Clock} delay={0.3}>
                       <CustomSelect
                         options={timeSlots}
-                        placeholder="Select time slot"
+                        placeholder={t('appt.timePlaceholder')}
                         value={formData.time}
                         onChange={handleChange}
                         name="time"
@@ -511,7 +524,7 @@ export default function AppointmentBookingSection() {
                   </div>
 
                   {/* Row 4: Message */}
-                  <FormField label="Message (Optional)" icon={MessageSquare} delay={0.35}>
+                  <FormField label={t('appt.messageField')} icon={MessageSquare} delay={0.35}>
                     <textarea
                       name="message"
                       value={formData.message}
@@ -519,7 +532,7 @@ export default function AppointmentBookingSection() {
                       onFocus={() => setFocusedField('message')}
                       onBlur={() => setFocusedField(null)}
                       rows={4}
-                      placeholder="Tell us about your condition or any specific requirements..."
+                      placeholder={t('appt.msgPlaceholder')}
                       className={`${inputBase} resize-none ${
                         focusedField === 'message' ? 'shadow-[0_0_20px_rgba(0,212,255,0.1)]' : ''
                       }`}
@@ -544,14 +557,14 @@ export default function AppointmentBookingSection() {
 
                     <span className="relative z-10 flex items-center gap-2.5 text-white">
                       <Send className="w-5 h-5 group-hover:translate-x-0.5 transition-transform duration-300" />
-                      Book Appointment
+                      {t('appt.bookBtn')}
                     </span>
                   </motion.button>
 
                   {/* Privacy note */}
                   <p className="text-center text-white/25 text-xs flex items-center justify-center gap-1.5">
                     <ShieldCheck className="w-3 h-3" />
-                    Your information is secure and HIPAA compliant
+                    {t('appt.privacyNote')}
                   </p>
                 </form>
               )}
@@ -584,11 +597,10 @@ export default function AppointmentBookingSection() {
                 </motion.div>
 
                 <h3 className="text-lg font-bold text-white">
-                  Emergency Help
+                  {t('appt.emergencyTitle')}
                 </h3>
                 <p className="text-white/45 text-sm mt-2 leading-relaxed">
-                  For urgent gynecological emergencies, don&apos;t wait. Our emergency
-                  obstetric team is available 24/7.
+                  {t('appt.emergencyDesc')}
                 </p>
 
                 {/* Phone number */}
@@ -609,7 +621,7 @@ export default function AppointmentBookingSection() {
                     <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400" />
                   </span>
                   <span className="text-xs text-green-400/80 font-medium">
-                    Emergency line active — 24/7
+                    {t('appt.emergencyLine')}
                   </span>
                 </div>
               </div>
@@ -630,28 +642,23 @@ export default function AppointmentBookingSection() {
                 </div>
 
                 <h3 className="text-lg font-bold text-white">
-                  Online Consultation
+                  {t('appt.onlineTitle')}
                 </h3>
                 <p className="text-white/45 text-sm mt-2 leading-relaxed">
-                  Consult our expert gynecologists from the comfort of your home
-                  via secure video consultation.
+                  {t('appt.onlineDesc')}
                 </p>
 
                 {/* Features list */}
                 <div className="mt-4 space-y-2.5">
-                  {[
-                    'HD Video & Audio',
-                    'Prescription via Email',
-                    'Follow-up Included',
-                  ].map((feature) => (
+                  {['appt.feature1', 'appt.feature2', 'appt.feature3'].map((featureKey) => (
                     <div
-                      key={feature}
+                      key={featureKey}
                       className="flex items-center gap-2 text-sm text-white/55"
                     >
                       <div className="w-5 h-5 rounded-md bg-[#00D4FF]/10 flex items-center justify-center flex-shrink-0">
                         <CheckCircle className="w-3 h-3 text-[#00D4FF]" />
                       </div>
-                      {feature}
+                      {t(featureKey)}
                     </div>
                   ))}
                 </div>
@@ -659,7 +666,7 @@ export default function AppointmentBookingSection() {
                 {/* CTA */}
                 <button className="mt-5 w-full py-3 rounded-xl bg-gradient-to-r from-[#00D4FF]/10 to-[#0066FF]/10 border border-[#00D4FF]/20 text-[#00D4FF] font-semibold text-sm hover:border-[#00D4FF]/40 hover:shadow-[0_0_20px_rgba(0,212,255,0.1)] transition-all duration-300 flex items-center justify-center gap-2">
                   <Video className="w-4 h-4" />
-                  Start Consultation
+                  {t('appt.startConsult')}
                 </button>
               </div>
             </div>
@@ -677,7 +684,7 @@ export default function AppointmentBookingSection() {
                   <Clock className="w-5 h-5 text-[#00D4FF]" />
                 </div>
                 <div className="text-lg font-bold gradient-text">30 Min</div>
-                <div className="text-[11px] text-white/35 mt-0.5">Avg. Wait Time</div>
+                <div className="text-[11px] text-white/35 mt-0.5">{t('appt.avgWait')}</div>
               </motion.div>
 
               <motion.div
@@ -690,8 +697,8 @@ export default function AppointmentBookingSection() {
                 <div className="w-10 h-10 mx-auto rounded-xl bg-gradient-to-br from-[#FF6B8A]/15 to-[#FF8FA3]/15 flex items-center justify-center mb-2.5 group-hover:shadow-[0_0_15px_rgba(255,107,138,0.15)] transition-shadow duration-500">
                   <Zap className="w-5 h-5 text-[#FF6B8A]" />
                 </div>
-                <div className="text-lg font-bold gradient-text-warm">Same Day</div>
-                <div className="text-[11px] text-white/35 mt-0.5">Urgent Slots</div>
+                <div className="text-lg font-bold gradient-text-warm">{t('appt.sameDay')}</div>
+                <div className="text-[11px] text-white/35 mt-0.5">{t('appt.urgentSlots')}</div>
               </motion.div>
             </div>
 
@@ -699,8 +706,7 @@ export default function AppointmentBookingSection() {
             <div className="glass-card p-4 flex items-start gap-3">
               <AlertCircle className="w-4 h-4 text-[#00D4FF]/60 flex-shrink-0 mt-0.5" />
               <p className="text-[11px] sm:text-xs text-white/35 leading-relaxed">
-                Appointments are subject to doctor availability. Our team will
-                confirm your slot via phone call or SMS within 30 minutes of submission.
+                {t('appt.assuranceNote')}
               </p>
             </div>
           </motion.div>

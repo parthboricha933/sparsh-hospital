@@ -285,3 +285,30 @@ html {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 212, 255, 0.4);
 }
+
+/* Gujarati language font support */
+html[data-lang="gu"] body {
+  font-family: var(--font-gujarati), var(--font-geist-sans), system-ui, sans-serif;
+}
+
+html[data-lang="gu"] h1,
+html[data-lang="gu"] h2,
+html[data-lang="gu"] h3,
+html[data-lang="gu"] h4,
+html[data-lang="gu"] h5,
+html[data-lang="gu"] h6 {
+  font-family: var(--font-gujarati), var(--font-geist-sans), system-ui, sans-serif;
+}
+
+html[data-lang="gu"] p,
+html[data-lang="gu"] span,
+html[data-lang="gu"] a,
+html[data-lang="gu"] label,
+html[data-lang="gu"] button,
+html[data-lang="gu"] li,
+html[data-lang="gu"] input,
+html[data-lang="gu"] textarea,
+html[data-lang="gu"] select,
+html[data-lang="gu"] option {
+  font-family: var(--font-gujarati), var(--font-geist-sans), system-ui, sans-serif;
+}

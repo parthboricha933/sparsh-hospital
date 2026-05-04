@@ -3,23 +3,24 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, ArrowUp, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
-const quickLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'About Us', href: '#about' },
-  { name: 'Services', href: '#specialities' },
-  { name: 'Our Doctors', href: '#doctors' },
-  { name: 'Testimonials', href: '#testimonials' },
-  { name: 'Book Appointment', href: '#contact' },
+const quickLinkKeys = [
+  { key: 'footer.home', href: '#home' },
+  { key: 'footer.aboutUs', href: '#about' },
+  { key: 'footer.services', href: '#specialities' },
+  { key: 'footer.ourDoctors', href: '#doctors' },
+  { key: 'footer.testimonials', href: '#testimonials' },
+  { key: 'footer.bookAppt', href: '#contact' },
 ];
 
-const specialities = [
-  'Obstetrics & Maternity',
-  'Gynecologic Surgery',
-  'Fertility & IVF',
-  'Gynecologic Oncology',
-  'Menopause & Wellness',
-  'General Gynecology',
+const specialityKeys = [
+  'dept.obstetrics',
+  'dept.surgery',
+  'dept.fertility',
+  'dept.oncology',
+  'dept.menopause',
+  'dept.general',
 ];
 
 const socialLinks = [
@@ -31,6 +32,7 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const { t } = useLanguage();
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
@@ -74,8 +76,7 @@ export default function Footer() {
               </span>
             </a>
             <p className="text-white/40 text-sm leading-relaxed mb-6">
-              Founded by Dr. Vijay Ladumor in 2017, Sparsh Hospital has been a beacon of gynecology excellence,
-              combining cutting-edge technology with compassionate women's healthcare.
+              {t('footer.description')}
             </p>
             <div className="flex items-center gap-3">
               {socialLinks.map((social) => (
@@ -93,15 +94,15 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-white font-semibold mb-4">{t('footer.quickLinks')}</h3>
             <ul className="space-y-2.5">
-              {quickLinks.map((link) => (
-                <li key={link.name}>
+              {quickLinkKeys.map((link) => (
+                <li key={link.key}>
                   <a
                     href={link.href}
                     className="text-white/40 hover:text-[#00D4FF] text-sm transition-colors duration-200"
                   >
-                    {link.name}
+                    {t(link.key)}
                   </a>
                 </li>
               ))}
@@ -110,15 +111,15 @@ export default function Footer() {
 
           {/* Specialities */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Our Services</h3>
+            <h3 className="text-white font-semibold mb-4">{t('footer.ourServices')}</h3>
             <ul className="space-y-2.5">
-              {specialities.map((spec) => (
-                <li key={spec}>
+              {specialityKeys.map((specKey) => (
+                <li key={specKey}>
                   <a
                     href="#specialities"
                     className="text-white/40 hover:text-[#00D4FF] text-sm transition-colors duration-200"
                   >
-                    {spec}
+                    {t(specKey)}
                   </a>
                 </li>
               ))}
@@ -127,13 +128,13 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Contact Info</h3>
+            <h3 className="text-white font-semibold mb-4">{t('footer.contactInfo')}</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-[#00D4FF] mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-white/60 text-sm">+91 123 456 7890</p>
-                  <p className="text-white/30 text-xs">Emergency 24/7</p>
+                  <p className="text-white/30 text-xs">{t('footer.emergency247')}</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
@@ -143,8 +144,7 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-[#00D4FF] mt-0.5 flex-shrink-0" />
                 <p className="text-white/60 text-sm">
-                  Jafrabad Road, Opp. Honda Showroom,<br />
-                  Pipavav, Rajula-365560, Gujarat
+                  {t('footer.address')}
                 </p>
               </li>
             </ul>
@@ -154,12 +154,12 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-white/5 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/30 text-xs sm:text-sm">
-            © {new Date().getFullYear()} Sparsh Hospital. All rights reserved.
+            © {new Date().getFullYear()} {t('footer.copyright')}
           </p>
           <div className="flex items-center gap-6 text-xs text-white/30">
-            <a href="#" className="hover:text-white/50 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white/50 transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-white/50 transition-colors">Cookie Policy</a>
+            <a href="#" className="hover:text-white/50 transition-colors">{t('footer.privacyPolicy')}</a>
+            <a href="#" className="hover:text-white/50 transition-colors">{t('footer.termsOfService')}</a>
+            <a href="#" className="hover:text-white/50 transition-colors">{t('footer.cookiePolicy')}</a>
           </div>
         </div>
       </div>

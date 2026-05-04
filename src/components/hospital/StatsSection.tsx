@@ -2,14 +2,15 @@
 
 import { useRef, useEffect, useState, useCallback } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { useLanguage } from '@/context/LanguageContext';
 
 const stats = [
-  { value: 8, suffix: '+', label: 'Years of Excellence' },
-  { value: 100, suffix: '+', label: 'Gynecologists' },
-  { value: 5, suffix: '', label: 'Sub-Specialities' },
-  { value: 50000, suffix: '+', label: 'Happy Mothers', display: '50K+' },
-  { value: 10000, suffix: '+', label: 'Successful Deliveries', display: '10K+' },
-  { value: 150, suffix: '+', label: 'Awards & Recognitions' },
+  { value: 8, suffix: '+', labelKey: 'stats.years' },
+  { value: 100, suffix: '+', labelKey: 'stats.gynecologists' },
+  { value: 5, suffix: '', labelKey: 'stats.subSpecialities' },
+  { value: 50000, suffix: '+', labelKey: 'stats.happyMothers', display: '50K+' },
+  { value: 10000, suffix: '+', labelKey: 'stats.deliveries', display: '10K+' },
+  { value: 150, suffix: '+', labelKey: 'stats.awards' },
 ];
 
 function AnimatedCounter({ value, suffix, display }: { value: number; suffix: string; display?: string }) {
@@ -63,6 +64,8 @@ function AnimatedCounter({ value, suffix, display }: { value: number; suffix: st
 }
 
 export default function StatsSection() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative py-20 sm:py-28 overflow-hidden">
       {/* Dark gradient background */}
@@ -83,10 +86,16 @@ export default function StatsSection() {
           className="text-center mb-16"
         >
           <span className="text-sm font-semibold text-[#00D4FF] uppercase tracking-widest">
-            Our Impact
+            {t('stats.subtitle')}
           </span>
           <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-bold">
-            Numbers That <span className="gradient-text">Speak</span>
+            {t('stats.heading').split(' ').map((word, i, arr) =>
+              i === arr.length - 1 ? (
+                <span key={i} className="gradient-text">{word}</span>
+              ) : (
+                <span key={i}>{word} </span>
+              )
+            )}
           </h2>
           <div className="mt-4 w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-[#0066FF] to-[#00D4FF]" />
         </motion.div>
@@ -95,7 +104,7 @@ export default function StatsSection() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8">
           {stats.map((stat, i) => (
             <motion.div
-              key={stat.label}
+              key={stat.labelKey}
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -110,7 +119,7 @@ export default function StatsSection() {
                 />
               </div>
               <div className="mt-2 text-xs sm:text-sm text-white/50 font-medium">
-                {stat.label}
+                {t(stat.labelKey)}
               </div>
             </motion.div>
           ))}

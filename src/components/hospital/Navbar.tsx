@@ -3,20 +3,22 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone } from 'lucide-react';
-
-const navLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Services', href: '#specialities' },
-  { name: 'Doctors', href: '#doctors' },
-  { name: 'Appointment', href: '#appointment' },
-  { name: 'Testimonials', href: '#testimonials' },
-  { name: 'Contact', href: '#contact' },
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
+
+  const navLinks = [
+    { name: t('nav.home'), href: '#home' },
+    { name: t('nav.about'), href: '#about' },
+    { name: t('nav.services'), href: '#specialities' },
+    { name: t('nav.doctors'), href: '#doctors' },
+    { name: t('nav.appointment'), href: '#appointment' },
+    { name: t('nav.testimonials'), href: '#testimonials' },
+    { name: t('nav.contact'), href: '#contact' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -74,13 +76,13 @@ export default function Navbar() {
                 className="flex items-center gap-2 text-sm text-white/70 hover:text-[#00D4FF] transition-colors duration-300"
               >
                 <Phone className="w-4 h-4" />
-                <span>Emergency</span>
+                <span>{t('nav.emergency')}</span>
               </a>
               <a
                 href="#appointment"
                 className="btn-glow px-5 py-2.5 rounded-full bg-gradient-to-r from-[#0066FF] to-[#0044CC] text-white text-sm font-semibold"
               >
-                Book Appointment
+                {t('nav.bookAppointment')}
               </a>
             </div>
 
@@ -153,14 +155,14 @@ export default function Navbar() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="btn-glow w-full text-center py-3 rounded-full bg-gradient-to-r from-[#0066FF] to-[#0044CC] text-white font-semibold"
                   >
-                    Book Appointment
+                    {t('nav.bookAppointment')}
                   </a>
                   <a
                     href="tel:+911234567890"
                     className="flex items-center justify-center gap-2 text-sm text-white/70 hover:text-[#00D4FF] transition-colors"
                   >
                     <Phone className="w-4 h-4" />
-                    Emergency: +91 123 456 7890
+                    {t('nav.emergencyFull')}
                   </a>
                 </div>
               </div>

@@ -13,83 +13,24 @@ import {
   Activity,
   TrendingUp,
 } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 /* ─── Testimonial Data ─── */
 const testimonials = [
-  {
-    name: 'Sneha Kapoor',
-    initials: 'SK',
-    treatment: 'High-Risk Pregnancy & Delivery',
-    story: 'Healing Success Story',
-    rating: 5,
-    quote:
-      'The obstetrics team at Sparsh made my high-risk pregnancy feel safe and manageable. From weekly monitoring to the final delivery, every doctor and nurse treated me with genuine warmth. My baby and I are thriving thanks to them.',
-    gradientFrom: '#0066FF',
-    gradientTo: '#00D4FF',
-  },
-  {
-    name: 'Anjali Rao',
-    initials: 'AR',
-    treatment: 'Laparoscopic Fibroid Surgery',
-    story: 'Healing Success Story',
-    rating: 5,
-    quote:
-      'After years of painful fibroids, the minimally invasive surgery at Sparsh changed my life. I was home in two days and recovered in weeks, not months. The surgical team is truly exceptional and so compassionate.',
-    gradientFrom: '#FF6B8A',
-    gradientTo: '#FF8FA3',
-  },
-  {
-    name: 'Deepa & Vikram Shah',
-    initials: 'DS',
-    treatment: 'IVF Treatment',
-    story: 'Miracle Journey',
-    rating: 5,
-    quote:
-      'We had almost given up hope after multiple failed attempts elsewhere. The fertility team at Sparsh gave us a personalised protocol and constant emotional support. Today we hold our beautiful daughter — we owe them everything.',
-    gradientFrom: '#00E5FF',
-    gradientTo: '#0066FF',
-  },
-  {
-    name: 'Lakshmi Nair',
-    initials: 'LN',
-    treatment: 'Gynecologic Oncology',
-    story: 'Survivor Story',
-    rating: 5,
-    quote:
-      'Being diagnosed with cervical cancer was terrifying, but the oncology team at Sparsh guided me through every step — from surgery to recovery. They treated me like family, not just a patient. Forever grateful.',
-    gradientFrom: '#66B2FF',
-    gradientTo: '#0066FF',
-  },
-  {
-    name: 'Ritu Menon',
-    initials: 'RM',
-    treatment: 'Menopause Management',
-    story: 'Wellness Journey',
-    rating: 5,
-    quote:
-      'The menopause wellness programme at Sparsh helped me navigate a very difficult phase with dignity and confidence. The holistic approach — medical, emotional, and lifestyle support — made all the difference.',
-    gradientFrom: '#00D4FF',
-    gradientTo: '#00E5FF',
-  },
-  {
-    name: 'Pritha Banerjee',
-    initials: 'PB',
-    treatment: 'Emergency C-Section',
-    story: 'Healing Success Story',
-    rating: 5,
-    quote:
-      'I was rushed to Sparsh at 3 AM with complications. The emergency team acted within minutes — my baby was delivered safely and both of us received incredible post-operative care. They saved our lives.',
-    gradientFrom: '#FF6B8A',
-    gradientTo: '#66B2FF',
-  },
+  { name: 'Sneha Kapoor', initials: 'SK', storyKey: 'test.story1', quoteKey: 'test.quote1', treatmentKey: 'test.treatment1', rating: 5, gradientFrom: '#0066FF', gradientTo: '#00D4FF' },
+  { name: 'Anjali Rao', initials: 'AR', storyKey: 'test.story2', quoteKey: 'test.quote2', treatmentKey: 'test.treatment2', rating: 5, gradientFrom: '#FF6B8A', gradientTo: '#FF8FA3' },
+  { name: 'Deepa & Vikram Shah', initials: 'DS', storyKey: 'test.story3', quoteKey: 'test.quote3', treatmentKey: 'test.treatment3', rating: 5, gradientFrom: '#00E5FF', gradientTo: '#0066FF' },
+  { name: 'Lakshmi Nair', initials: 'LN', storyKey: 'test.story4', quoteKey: 'test.quote4', treatmentKey: 'test.treatment4', rating: 5, gradientFrom: '#66B2FF', gradientTo: '#0066FF' },
+  { name: 'Ritu Menon', initials: 'RM', storyKey: 'test.story5', quoteKey: 'test.quote5', treatmentKey: 'test.treatment5', rating: 5, gradientFrom: '#00D4FF', gradientTo: '#00E5FF' },
+  { name: 'Pritha Banerjee', initials: 'PB', storyKey: 'test.story6', quoteKey: 'test.quote6', treatmentKey: 'test.treatment6', rating: 5, gradientFrom: '#FF6B8A', gradientTo: '#66B2FF' },
 ];
 
 /* ─── Counter Data ─── */
-const trustCounters = [
-  { icon: Activity, value: 8500, suffix: '+', label: 'Successful Surgeries', display: '8.5K+' },
-  { icon: Baby, value: 10000, suffix: '+', label: 'Safe Deliveries', display: '10K+' },
-  { icon: HeartPulse, value: 50000, suffix: '+', label: 'Recoveries', display: '50K+' },
-  { icon: TrendingUp, value: 98, suffix: '%', label: 'Patient Satisfaction', display: '98%' },
+const trustCounterKeys = [
+  { icon: Activity, value: 8500, suffix: '+', labelKey: 'test.surgeries', display: '8.5K+' },
+  { icon: Baby, value: 10000, suffix: '+', labelKey: 'test.safeDeliveries', display: '10K+' },
+  { icon: HeartPulse, value: 50000, suffix: '+', labelKey: 'test.recoveries', display: '50K+' },
+  { icon: TrendingUp, value: 98, suffix: '%', labelKey: 'test.satisfaction', display: '98%' },
 ];
 
 /* ─── Animated Counter Component ─── */
@@ -217,6 +158,7 @@ function StarRating({ rating }: { rating: number }) {
    Testimonials Section
    ────────────────────────────────────────────── */
 export default function TestimonialsSection() {
+  const { t } = useLanguage();
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -258,7 +200,7 @@ export default function TestimonialsSection() {
     }),
   };
 
-  const t = testimonials[current];
+  const currentTestimonial = testimonials[current];
 
   return (
     <section
@@ -301,14 +243,19 @@ export default function TestimonialsSection() {
           className="text-center mb-14 sm:mb-18"
         >
           <span className="text-sm font-semibold text-[#00D4FF] uppercase tracking-widest">
-            Patient Stories
+            {t('test.subtitle')}
           </span>
           <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-bold">
-            Voices of <span className="gradient-text">Trust & Healing</span>
+            {t('test.heading').split(' ').map((word, i, arr) =>
+              i === arr.length - 1 ? (
+                <span key={i} className="gradient-text">{word}</span>
+              ) : (
+                <span key={i}>{word} </span>
+              )
+            )}
           </h2>
           <p className="mt-4 text-white/45 max-w-2xl mx-auto leading-relaxed">
-            Every number represents a life touched, a family made whole, and a story
-            of hope fulfilled. Hear from the women and families who trusted Sparsh.
+            {t('test.description')}
           </p>
           <div className="mt-5 w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-[#0066FF] to-[#00D4FF]" />
         </motion.div>
@@ -316,13 +263,13 @@ export default function TestimonialsSection() {
         {/* ── Trust Counters ── */}
         <div className="mb-14 sm:mb-18">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-            {trustCounters.map((counter, i) => (
+            {trustCounterKeys.map((counter, i) => (
               <TrustCounter
-                key={counter.label}
+                key={counter.labelKey}
                 icon={counter.icon}
                 value={counter.value}
                 suffix={counter.suffix}
-                label={counter.label}
+                label={t(counter.labelKey)}
                 display={counter.display}
                 delay={i * 0.1}
               />
@@ -368,15 +315,15 @@ export default function TestimonialsSection() {
                     <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FF6B8A]/10 border border-[#FF6B8A]/20">
                       <HeartPulse className="w-3.5 h-3.5 text-[#FF6B8A]" />
                       <span className="text-xs font-semibold text-[#FF6B8A]">
-                        {t.story}
+                        {t(currentTestimonial.storyKey)}
                       </span>
                     </div>
-                    <StarRating rating={t.rating} />
+                    <StarRating rating={currentTestimonial.rating} />
                   </div>
 
                   {/* Quote text */}
                   <p className="text-base sm:text-lg md:text-xl text-white/75 leading-relaxed italic">
-                    &ldquo;{t.quote}&rdquo;
+                    &ldquo;{t(currentTestimonial.quoteKey)}&rdquo;
                   </p>
 
                   {/* Patient info */}
@@ -385,14 +332,14 @@ export default function TestimonialsSection() {
                     <div
                       className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center border-2 border-white/10 flex-shrink-0 group/avatar"
                       style={{
-                        background: `linear-gradient(135deg, ${t.gradientFrom}30, ${t.gradientTo}15)`,
+                        background: `linear-gradient(135deg, ${currentTestimonial.gradientFrom}30, ${currentTestimonial.gradientTo}15)`,
                       }}
                     >
                       <span
                         className="text-lg sm:text-xl font-bold"
-                        style={{ color: t.gradientFrom }}
+                        style={{ color: currentTestimonial.gradientFrom }}
                       >
-                        {t.initials}
+                        {currentTestimonial.initials}
                       </span>
 
                       {/* Verified badge */}
@@ -403,7 +350,7 @@ export default function TestimonialsSection() {
                       {/* Pulse ring on hover */}
                       <motion.div
                         className="absolute inset-0 rounded-full border-2 opacity-0 group-hover/avatar:opacity-100"
-                        style={{ borderColor: `${t.gradientFrom}40` }}
+                        style={{ borderColor: `${currentTestimonial.gradientFrom}40` }}
                         animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0, 0.4] }}
                         transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
                       />
@@ -411,10 +358,10 @@ export default function TestimonialsSection() {
 
                     <div>
                       <h4 className="font-bold text-white text-base sm:text-lg">
-                        {t.name}
+                        {currentTestimonial.name}
                       </h4>
                       <p className="text-sm text-[#00D4FF] font-medium">
-                        {t.treatment}
+                        {t(currentTestimonial.treatmentKey)}
                       </p>
                     </div>
                   </div>
@@ -423,7 +370,7 @@ export default function TestimonialsSection() {
                   <div
                     className="absolute bottom-0 left-6 right-6 h-px"
                     style={{
-                      background: `linear-gradient(90deg, transparent, ${t.gradientFrom}20, transparent)`,
+                      background: `linear-gradient(90deg, transparent, ${currentTestimonial.gradientFrom}20, transparent)`,
                     }}
                   />
                 </motion.div>
@@ -499,9 +446,9 @@ export default function TestimonialsSection() {
           className="mt-14 sm:mt-16"
         >
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
-            {testimonials.map((t, i) => (
+            {testimonials.map((testItem, i) => (
               <motion.button
-                key={t.name}
+                key={testItem.name}
                 onClick={() => {
                   setDirection(i > current ? 1 : -1);
                   setCurrent(i);
@@ -522,18 +469,18 @@ export default function TestimonialsSection() {
                 <div
                   className="w-10 h-10 mx-auto mb-2 rounded-full flex items-center justify-center border border-white/10"
                   style={{
-                    background: `linear-gradient(135deg, ${t.gradientFrom}25, ${t.gradientTo}10)`,
+                    background: `linear-gradient(135deg, ${testItem.gradientFrom}25, ${testItem.gradientTo}10)`,
                   }}
                 >
                   <span
                     className="text-xs font-bold"
-                    style={{ color: t.gradientFrom }}
+                    style={{ color: testItem.gradientFrom }}
                   >
-                    {t.initials}
+                    {testItem.initials}
                   </span>
                 </div>
-                <p className="text-xs font-semibold text-white/80 truncate">{t.name}</p>
-                <p className="text-[10px] text-white/35 mt-0.5 truncate">{t.treatment}</p>
+                <p className="text-xs font-semibold text-white/80 truncate">{testItem.name}</p>
+                <p className="text-[10px] text-white/35 mt-0.5 truncate">{t(testItem.treatmentKey)}</p>
               </motion.button>
             ))}
           </div>

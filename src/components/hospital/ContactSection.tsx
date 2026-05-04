@@ -3,44 +3,46 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
-const departments = [
-  'Obstetrics & Maternity',
-  'Gynecologic Surgery',
-  'Fertility & IVF',
-  'Gynecologic Oncology',
-  'Menopause & Wellness',
-  'General Gynecology',
+const departmentKeys = [
+  'dept.obstetrics',
+  'dept.surgery',
+  'dept.fertility',
+  'dept.oncology',
+  'dept.menopause',
+  'dept.general',
 ];
 
-const contactInfo = [
+const contactInfoKeys = [
   {
     icon: Phone,
-    label: 'Emergency',
+    labelKey: 'contact.emergency',
     value: '+91 123 456 7890',
-    sublabel: '24/7 Available',
+    sublabelKey: 'contact.available247',
   },
   {
     icon: Mail,
-    label: 'Email Us',
+    labelKey: 'contact.emailUs',
     value: 'info@sparshhospital.com',
-    sublabel: 'We respond within 24h',
+    sublabelKey: 'contact.respond24h',
   },
   {
     icon: MapPin,
-    label: 'Visit Us',
-    value: 'Jafrabad Road, Opp. Honda Showroom, Pipavav, Rajula-365560, Gujarat',
-    sublabel: '',
+    labelKey: 'contact.visitUs',
+    valueKey: 'contact.address',
+    sublabelKey: '',
   },
   {
     icon: Clock,
-    label: 'Working Hours',
-    value: 'Mon-Sat: 8:00 AM - 10:00 PM',
-    sublabel: 'Emergency: 24/7',
+    labelKey: 'contact.workingHours',
+    valueKey: 'contact.hoursValue',
+    sublabelKey: 'contact.emergency247',
   },
 ];
 
 export default function ContactSection() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -80,14 +82,19 @@ export default function ContactSection() {
           className="text-center mb-16"
         >
           <span className="text-sm font-semibold text-[#00D4FF] uppercase tracking-widest">
-            Get In Touch
+            {t('contact.subtitle')}
           </span>
           <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-bold">
-            Book an <span className="gradient-text">Appointment</span>
+            {t('contact.heading').split(' ').map((word, i, arr) =>
+              i === arr.length - 1 ? (
+                <span key={i} className="gradient-text">{word}</span>
+              ) : (
+                <span key={i}>{word} </span>
+              )
+            )}
           </h2>
           <p className="mt-4 text-white/50 max-w-2xl mx-auto">
-            Schedule a consultation with our specialists. We&apos;re here to help you
-            take the first step towards better health.
+            {t('contact.description')}
           </p>
           <div className="mt-4 w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-[#0066FF] to-[#00D4FF]" />
         </motion.div>
@@ -101,9 +108,9 @@ export default function ContactSection() {
             transition={{ duration: 0.7 }}
             className="lg:col-span-2 space-y-6"
           >
-            {contactInfo.map((item, i) => (
+            {contactInfoKeys.map((item, i) => (
               <motion.div
-                key={item.label}
+                key={item.labelKey}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -114,10 +121,12 @@ export default function ContactSection() {
                   <item.icon className="w-5 h-5 text-[#00D4FF]" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white text-sm">{item.label}</h4>
-                  <p className="text-white/60 text-sm mt-0.5">{item.value}</p>
-                  {item.sublabel && (
-                    <p className="text-[#00D4FF] text-xs mt-0.5">{item.sublabel}</p>
+                  <h4 className="font-semibold text-white text-sm">{t(item.labelKey)}</h4>
+                  <p className="text-white/60 text-sm mt-0.5">
+                    {item.valueKey ? t(item.valueKey) : item.value}
+                  </p>
+                  {item.sublabelKey && (
+                    <p className="text-[#00D4FF] text-xs mt-0.5">{t(item.sublabelKey)}</p>
                   )}
                 </div>
               </motion.div>
@@ -128,8 +137,8 @@ export default function ContactSection() {
               <div className="absolute inset-0 bg-gradient-to-br from-[#0D1333] to-[#0A0E27] flex items-center justify-center">
                 <div className="text-center">
                   <MapPin className="w-8 h-8 text-[#00D4FF]/50 mx-auto mb-2" />
-                  <p className="text-white/30 text-sm">Sparsh Hospital</p>
-                  <p className="text-white/20 text-xs mt-1">Pipavav, Rajula, Gujarat</p>
+                  <p className="text-white/30 text-sm">{t('contact.mapTitle')}</p>
+                  <p className="text-white/20 text-xs mt-1">{t('contact.mapSub')}</p>
                 </div>
               </div>
               {/* Decorative grid pattern */}
@@ -158,9 +167,9 @@ export default function ContactSection() {
                   <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mb-4">
                     <CheckCircle className="w-8 h-8 text-green-400" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">Appointment Requested!</h3>
+                  <h3 className="text-xl font-bold text-white">{t('contact.successTitle')}</h3>
                   <p className="text-white/50 mt-2">
-                    We&apos;ll contact you shortly to confirm your appointment.
+                    {t('contact.successMsg')}
                   </p>
                 </motion.div>
               ) : (
@@ -168,7 +177,7 @@ export default function ContactSection() {
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
                       <label className="text-sm text-white/60 font-medium mb-1.5 block">
-                        Full Name *
+                        {t('contact.fullName')}
                       </label>
                       <input
                         type="text"
@@ -176,13 +185,13 @@ export default function ContactSection() {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        placeholder="John Doe"
+                        placeholder={t('contact.namePlaceholder')}
                         className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:border-[#00D4FF]/50 focus:outline-none focus:ring-1 focus:ring-[#00D4FF]/30 transition-all duration-300 text-sm"
                       />
                     </div>
                     <div>
                       <label className="text-sm text-white/60 font-medium mb-1.5 block">
-                        Phone Number *
+                        {t('contact.phoneField')}
                       </label>
                       <input
                         type="tel"
@@ -190,7 +199,7 @@ export default function ContactSection() {
                         value={formData.phone}
                         onChange={handleChange}
                         required
-                        placeholder="+91 98765 43210"
+                        placeholder={t('contact.phonePlaceholder')}
                         className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:border-[#00D4FF]/50 focus:outline-none focus:ring-1 focus:ring-[#00D4FF]/30 transition-all duration-300 text-sm"
                       />
                     </div>
@@ -198,14 +207,14 @@ export default function ContactSection() {
 
                   <div>
                     <label className="text-sm text-white/60 font-medium mb-1.5 block">
-                      Email Address
+                      {t('contact.emailField')}
                     </label>
                     <input
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="john@example.com"
+                      placeholder={t('contact.emailPlaceholder')}
                       className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:border-[#00D4FF]/50 focus:outline-none focus:ring-1 focus:ring-[#00D4FF]/30 transition-all duration-300 text-sm"
                     />
                   </div>
@@ -213,7 +222,7 @@ export default function ContactSection() {
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
                       <label className="text-sm text-white/60 font-medium mb-1.5 block">
-                        Department *
+                        {t('contact.deptField')}
                       </label>
                       <select
                         name="department"
@@ -222,17 +231,17 @@ export default function ContactSection() {
                         required
                         className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:border-[#00D4FF]/50 focus:outline-none focus:ring-1 focus:ring-[#00D4FF]/30 transition-all duration-300 text-sm appearance-none cursor-pointer"
                       >
-                        <option value="" className="bg-[#0D1333]">Select Department</option>
-                        {departments.map((dept) => (
-                          <option key={dept} value={dept} className="bg-[#0D1333]">
-                            {dept}
+                        <option value="" className="bg-[#0D1333]">{t('contact.selectDept')}</option>
+                        {departmentKeys.map((deptKey) => (
+                          <option key={deptKey} value={deptKey} className="bg-[#0D1333]">
+                            {t(deptKey)}
                           </option>
                         ))}
                       </select>
                     </div>
                     <div>
                       <label className="text-sm text-white/60 font-medium mb-1.5 block">
-                        Preferred Date
+                        {t('contact.dateField')}
                       </label>
                       <input
                         type="date"
@@ -246,14 +255,14 @@ export default function ContactSection() {
 
                   <div>
                     <label className="text-sm text-white/60 font-medium mb-1.5 block">
-                      Message
+                      {t('contact.messageField')}
                     </label>
                     <textarea
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       rows={4}
-                      placeholder="Tell us about your condition or any specific requirements..."
+                      placeholder={t('contact.msgPlaceholder')}
                       className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:border-[#00D4FF]/50 focus:outline-none focus:ring-1 focus:ring-[#00D4FF]/30 transition-all duration-300 text-sm resize-none"
                     />
                   </div>
@@ -263,7 +272,7 @@ export default function ContactSection() {
                     className="btn-glow w-full py-4 rounded-xl bg-gradient-to-r from-[#0066FF] to-[#0044CC] text-white font-semibold text-base flex items-center justify-center gap-2"
                   >
                     <Send className="w-5 h-5" />
-                    Request Appointment
+                    {t('contact.requestBtn')}
                   </button>
                 </form>
               )}

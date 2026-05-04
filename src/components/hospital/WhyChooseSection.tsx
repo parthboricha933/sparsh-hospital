@@ -13,77 +13,70 @@ import {
   HandHeart,
   Plus,
 } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 /* ─── Feature Data ─── */
 const features = [
   {
     icon: Clock,
-    title: '24/7 Emergency',
-    description:
-      'Round-the-clock emergency obstetric and gynecologic care with rapid response teams always on standby for critical situations.',
+    titleKey: 'why.feature1Title',
+    descKey: 'why.feature1Desc',
     color: '#00D4FF',
     gradient: 'from-[#00D4FF]/20 to-[#0066FF]/10',
     ringColor: 'rgba(0,212,255,0.15)',
   },
   {
     icon: HeartPulse,
-    title: 'Modern ICU',
-    description:
-      'State-of-the-art intensive care unit equipped with advanced fetal monitoring, neonatal ventilators, and maternal life-support systems.',
+    titleKey: 'why.feature2Title',
+    descKey: 'why.feature2Desc',
     color: '#FF6B8A',
     gradient: 'from-[#FF6B8A]/20 to-[#FF8FA3]/10',
     ringColor: 'rgba(255,107,138,0.15)',
   },
   {
     icon: Microscope,
-    title: 'Advanced Diagnostics',
-    description:
-      'Cutting-edge diagnostic suite featuring 4D ultrasound, fetal echocardiography, hysteroscopy, and comprehensive genetic screening labs.',
+    titleKey: 'why.feature3Title',
+    descKey: 'why.feature3Desc',
     color: '#00E5FF',
     gradient: 'from-[#00E5FF]/20 to-[#0066FF]/10',
     ringColor: 'rgba(0,229,255,0.15)',
   },
   {
     icon: UserCheck,
-    title: 'Experienced Surgeons',
-    description:
-      'Nationally recognized gynecologic surgeons with expertise in robotic-assisted, laparoscopic, and complex open surgical procedures.',
+    titleKey: 'why.feature4Title',
+    descKey: 'why.feature4Desc',
     color: '#66B2FF',
     gradient: 'from-[#66B2FF]/20 to-[#0066FF]/10',
     ringColor: 'rgba(102,178,255,0.15)',
   },
   {
     icon: ShieldCheck,
-    title: 'Cashless Insurance',
-    description:
-      'Seamless cashless treatment across 50+ insurance providers with dedicated TPA desk for instant pre-authorization and hassle-free claims.',
+    titleKey: 'why.feature5Title',
+    descKey: 'why.feature5Desc',
     color: '#00D4FF',
     gradient: 'from-[#00D4FF]/20 to-[#00E5FF]/10',
     ringColor: 'rgba(0,212,255,0.15)',
   },
   {
     icon: Ambulance,
-    title: 'Ambulance Service',
-    description:
-      'GPS-tracked advanced life-support ambulances with trained paramedic crews, ensuring rapid transit for high-risk pregnancies and emergencies.',
+    titleKey: 'why.feature6Title',
+    descKey: 'why.feature6Desc',
     color: '#FF6B8A',
     gradient: 'from-[#FF6B8A]/20 to-[#FF4444]/10',
     ringColor: 'rgba(255,107,138,0.15)',
   },
   {
     icon: FileDigit,
-    title: 'Digital Reports',
-    description:
-      'Instant access to all lab results, imaging, and medical records through our secure patient portal — available anytime, on any device.',
+    titleKey: 'why.feature7Title',
+    descKey: 'why.feature7Desc',
     color: '#00E5FF',
     gradient: 'from-[#00E5FF]/20 to-[#00D4FF]/10',
     ringColor: 'rgba(0,229,255,0.15)',
   },
   {
     icon: HandHeart,
-    title: 'Patient First Care',
-    description:
-      'Every treatment plan, facility, and interaction is designed around patient comfort, dignity, and emotional well-being — always putting you first.',
+    titleKey: 'why.feature8Title',
+    descKey: 'why.feature8Desc',
     color: '#66B2FF',
     gradient: 'from-[#66B2FF]/20 to-[#0066FF]/10',
     ringColor: 'rgba(102,178,255,0.15)',
@@ -301,6 +294,7 @@ function FloatingCross({
    Why Choose Sparsh Section
    ────────────────────────────────────────────── */
 export default function WhyChooseSection() {
+  const { t } = useLanguage();
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-80px' });
 
@@ -381,16 +375,13 @@ export default function WhyChooseSection() {
           className="text-center mb-16 sm:mb-20"
         >
           <span className="text-sm font-semibold text-[#00D4FF] uppercase tracking-widest">
-            Our Advantages
+            {t('why.subtitle')}
           </span>
           <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-bold">
-            Why Choose{' '}
-            <span className="gradient-text">Sparsh Hospital</span>
+            {t('why.heading')}
           </h2>
           <p className="mt-4 text-white/45 max-w-2xl mx-auto leading-relaxed">
-            From cutting-edge technology to compassionate care, every aspect of Sparsh
-            Hospital is designed to deliver an unparalleled healthcare experience for
-            women and their families.
+            {t('why.description')}
           </p>
           <div className="mt-5 w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-[#0066FF] to-[#00D4FF]" />
         </motion.div>
@@ -405,7 +396,7 @@ export default function WhyChooseSection() {
         >
           {features.map((feature, i) => (
             <motion.div
-              key={feature.title}
+              key={feature.titleKey}
               variants={cardVariant}
               whileHover={{
                 y: -8,
@@ -469,10 +460,10 @@ export default function WhyChooseSection() {
 
               {/* Content */}
               <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-white transition-colors">
-                {feature.title}
+                {t(feature.titleKey)}
               </h3>
               <p className="mt-2 text-sm text-white/45 leading-relaxed group-hover:text-white/55 transition-colors duration-300">
-                {feature.description}
+                {t(feature.descKey)}
               </p>
 
               {/* Bottom decorative gradient line */}
@@ -499,13 +490,13 @@ export default function WhyChooseSection() {
               href="#appointment"
               className="btn-glow px-8 py-3.5 rounded-full bg-gradient-to-r from-[#0066FF] to-[#0044CC] text-white font-semibold text-base flex items-center gap-2 transition-all duration-300"
             >
-              Book Your Visit
+              {t('why.bookVisit')}
             </a>
             <a
               href="#about"
               className="px-8 py-3.5 rounded-full border border-white/15 text-white/70 hover:text-white hover:border-[#00D4FF]/40 hover:bg-white/[0.03] font-semibold text-base transition-all duration-300"
             >
-              Learn More About Us
+              {t('why.learnMore')}
             </a>
           </div>
         </motion.div>

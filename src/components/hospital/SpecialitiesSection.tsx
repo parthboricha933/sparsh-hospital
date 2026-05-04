@@ -9,41 +9,20 @@ import {
   Pill,
   Stethoscope,
 } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const specialities = [
-  {
-    icon: Baby,
-    title: 'Obstetrics & Maternity',
-    desc: 'Comprehensive prenatal to postnatal care including high-risk pregnancy management, natural birthing suites, and dedicated LDR rooms for a safe, comfortable delivery experience.',
-  },
-  {
-    icon: HeartPulse,
-    title: 'Gynecologic Surgery',
-    desc: 'Minimally invasive laparoscopic & robotic-assisted procedures for fibroids, endometriosis, ovarian cysts, and hysterectomy — faster recovery, smaller incisions, better outcomes.',
-  },
-  {
-    icon: Sparkles,
-    title: 'Fertility & IVF Centre',
-    desc: 'State-of-the-art assisted reproductive technology including IVF, IUI, ICSI, and fertility preservation with personalised protocols and consistently high success rates.',
-  },
-  {
-    icon: ScanLine,
-    title: 'Gynecologic Oncology',
-    desc: 'Specialised screening, early detection, and advanced treatment for cervical, ovarian, and uterine cancers — combining surgical expertise with compassionate support.',
-  },
-  {
-    icon: Pill,
-    title: 'Menopause & Wellness',
-    desc: 'Holistic menopause management including hormone replacement therapy, bone health screening, cardiovascular risk assessment, and emotional wellbeing support.',
-  },
-  {
-    icon: Stethoscope,
-    title: 'General Gynecology',
-    desc: 'Comprehensive women\'s health consultations covering routine check-ups, menstrual disorders, PCOS management, contraceptive counselling, and preventive healthcare.',
-  },
+  { icon: Baby, titleKey: 'spec.obstetrics', descKey: 'spec.obstetricsDesc' },
+  { icon: HeartPulse, titleKey: 'spec.surgery', descKey: 'spec.surgeryDesc' },
+  { icon: Sparkles, titleKey: 'spec.fertility', descKey: 'spec.fertilityDesc' },
+  { icon: ScanLine, titleKey: 'spec.oncology', descKey: 'spec.oncologyDesc' },
+  { icon: Pill, titleKey: 'spec.menopause', descKey: 'spec.menopauseDesc' },
+  { icon: Stethoscope, titleKey: 'spec.general', descKey: 'spec.generalDesc' },
 ];
 
 export default function SpecialitiesSection() {
+  const { t } = useLanguage();
+
   return (
     <section id="specialities" className="relative py-20 sm:py-28 overflow-hidden">
       {/* Background decorations */}
@@ -61,14 +40,19 @@ export default function SpecialitiesSection() {
           className="text-center mb-16"
         >
           <span className="text-sm font-semibold text-[#00D4FF] uppercase tracking-widest">
-            Our Expertise
+            {t('spec.subtitle')}
           </span>
           <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-bold">
-            Gynecology Centres of <span className="gradient-text">Excellence</span>
+            {t('spec.heading').split(' ').map((word, i, arr) =>
+              i === arr.length - 1 ? (
+                <span key={i} className="gradient-text">{word}</span>
+              ) : (
+                <span key={i}>{word} </span>
+              )
+            )}
           </h2>
           <p className="mt-4 text-white/50 max-w-2xl mx-auto">
-            Five specialised gynecology divisions — each equipped with cutting-edge technology
-            and staffed by internationally trained women&apos;s health specialists.
+            {t('spec.description')}
           </p>
           <div className="mt-4 w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-[#0066FF] to-[#00D4FF]" />
         </motion.div>
@@ -77,7 +61,7 @@ export default function SpecialitiesSection() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {specialities.map((spec, i) => (
             <motion.div
-              key={spec.title}
+              key={spec.titleKey}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -96,10 +80,10 @@ export default function SpecialitiesSection() {
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#0066FF]/20 to-[#00D4FF]/20 flex items-center justify-center mb-5 group-hover:shadow-[0_0_25px_rgba(0,212,255,0.3)] transition-shadow duration-500">
                   <spec.icon className="w-7 h-7 text-[#00D4FF]" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{spec.title}</h3>
-                <p className="text-white/50 leading-relaxed text-sm">{spec.desc}</p>
+                <h3 className="text-xl font-bold text-white mb-3">{t(spec.titleKey)}</h3>
+                <p className="text-white/50 leading-relaxed text-sm">{t(spec.descKey)}</p>
                 <div className="mt-4 flex items-center gap-1 text-[#00D4FF] text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Learn more
+                  {t('spec.learnMore')}
                   <motion.span
                     initial={{ x: 0 }}
                     whileHover={{ x: 4 }}

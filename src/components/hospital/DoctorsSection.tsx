@@ -2,53 +2,21 @@
 
 import { motion } from 'framer-motion';
 import { User, Star } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const doctors = [
-  {
-    name: 'Dr. Vijay Ladumor',
-    speciality: 'Founder & Chief Gynecologist',
-    experience: '15+ Years',
-    qualification: 'M.B.DG.O',
-  },
-  {
-    name: 'Dr. Ananya Sharma',
-    speciality: 'Obstetrics & High-Risk Pregnancy',
-    experience: '12+ Years',
-    qualification: 'MBBS, MS OB-GYN',
-  },
-  {
-    name: 'Dr. Priya Menon',
-    speciality: 'Laparoscopic & Robotic Surgery',
-    experience: '10+ Years',
-    qualification: 'MBBS, MS OB-GYN, Fellowship',
-  },
-  {
-    name: 'Dr. Kavitha Reddy',
-    speciality: 'Fertility & IVF Specialist',
-    experience: '9+ Years',
-    qualification: 'MBBS, MS OB-GYN',
-  },
-  {
-    name: 'Dr. Meera Patel',
-    speciality: 'Gynecologic Oncology',
-    experience: '11+ Years',
-    qualification: 'MBBS, MS, Fellowship Gyn-Onc',
-  },
-  {
-    name: 'Dr. Ritu Kapoor',
-    speciality: 'Menopause & Wellness',
-    experience: '8+ Years',
-    qualification: 'MBBS, MD OB-GYN',
-  },
-  {
-    name: 'Dr. Nandini Iyer',
-    speciality: 'Maternal-Fetal Medicine',
-    experience: '7+ Years',
-    qualification: 'MBBS, MS OB-GYN, DM MFM',
-  },
+  { name: 'Dr. Vijay Ladumor', specKey: 'docs.doc1Spec', experience: '15+ Years', qualification: 'M.B.DG.O' },
+  { name: 'Dr. Ananya Sharma', specKey: 'docs.doc2Spec', experience: '12+ Years', qualification: 'MBBS, MS OB-GYN' },
+  { name: 'Dr. Priya Menon', specKey: 'docs.doc3Spec', experience: '10+ Years', qualification: 'MBBS, MS OB-GYN, Fellowship' },
+  { name: 'Dr. Kavitha Reddy', specKey: 'docs.doc4Spec', experience: '9+ Years', qualification: 'MBBS, MS OB-GYN' },
+  { name: 'Dr. Meera Patel', specKey: 'docs.doc5Spec', experience: '11+ Years', qualification: 'MBBS, MS, Fellowship Gyn-Onc' },
+  { name: 'Dr. Ritu Kapoor', specKey: 'docs.doc6Spec', experience: '8+ Years', qualification: 'MBBS, MD OB-GYN' },
+  { name: 'Dr. Nandini Iyer', specKey: 'docs.doc7Spec', experience: '7+ Years', qualification: 'MBBS, MS OB-GYN, DM MFM' },
 ];
 
 export default function DoctorsSection() {
+  const { t } = useLanguage();
+
   return (
     <section id="doctors" className="relative py-20 sm:py-28 overflow-hidden">
       {/* Background decorations */}
@@ -65,14 +33,19 @@ export default function DoctorsSection() {
           className="text-center mb-16"
         >
           <span className="text-sm font-semibold text-[#00D4FF] uppercase tracking-widest">
-            Our Team
+            {t('docs.subtitle')}
           </span>
           <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-bold">
-            Expert Gynecology <span className="gradient-text">Specialists</span>
+            {t('docs.heading').split(' ').map((word, i, arr) =>
+              i === arr.length - 1 ? (
+                <span key={i} className="gradient-text">{word}</span>
+              ) : (
+                <span key={i}>{word} </span>
+              )
+            )}
           </h2>
           <p className="mt-4 text-white/50 max-w-2xl mx-auto">
-            Our team of renowned gynecologists and obstetricians brings decades of experience
-            and a commitment to delivering the best possible outcomes for every woman.
+            {t('docs.description')}
           </p>
           <div className="mt-4 w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-[#0066FF] to-[#00D4FF]" />
         </motion.div>
@@ -103,7 +76,7 @@ export default function DoctorsSection() {
                 </div>
 
                 <h3 className="text-lg font-bold text-white">{doc.name}</h3>
-                <p className="text-[#00D4FF] font-medium text-sm mt-1">{doc.speciality}</p>
+                <p className="text-[#00D4FF] font-medium text-sm mt-1">{t(doc.specKey)}</p>
                 <p className="text-white/40 text-xs mt-1">{doc.qualification}</p>
 
                 <div className="mt-3 flex items-center justify-center gap-1">
@@ -116,7 +89,7 @@ export default function DoctorsSection() {
 
                 <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-white/60">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
-                  {doc.experience} Experience
+                  {doc.experience} {t('docs.exp')}
                 </div>
               </div>
             </motion.div>

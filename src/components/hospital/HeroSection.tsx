@@ -16,22 +16,17 @@ import {
   Heart,
   Star,
 } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const MedicalScene = dynamic(() => import('./MedicalScene'), { ssr: false });
 const ParticleBackground = dynamic(() => import('./ParticleBackground'), { ssr: false });
 
 /* ─── Data ─── */
 const stats = [
-  { icon: Building2, value: '8+', label: 'Years of Care' },
-  { icon: Users, value: '100+', label: 'Gynecologists' },
-  { icon: Clock, value: '24/7', label: 'Emergency' },
-  { icon: Heart, value: '50K+', label: 'Happy Mothers' },
-];
-
-const trustBadges = [
-  'ISO Certified',
-  'Gynecology Excellence',
-  'Patient Safety Focus',
+  { icon: Building2, value: '8+', labelKey: 'hero.statYears' },
+  { icon: Users, value: '100+', labelKey: 'hero.statGynecologists' },
+  { icon: Clock, value: '24/7', labelKey: 'hero.statEmergency' },
+  { icon: Heart, value: '50K+', labelKey: 'hero.statHappyMothers' },
 ];
 
 /* ─── Stagger container variant ─── */
@@ -51,6 +46,7 @@ const fadeUp = {
    Main Hero Section
    ────────────────────────────────────────────── */
 export default function HeroSection() {
+  const { t } = useLanguage();
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -100,7 +96,7 @@ export default function HeroSection() {
                 </span>
                 <ShieldCheck className="w-4 h-4 text-[#00D4FF]" />
                 <span className="text-sm text-white/70 font-medium">
-                  {trustBadges.join('  ·  ')}
+                  {t('hero.trustBadge')}
                 </span>
               </div>
             </motion.div>
@@ -110,9 +106,9 @@ export default function HeroSection() {
               variants={fadeUp}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] xl:text-7xl font-extrabold leading-[1.08] tracking-tight"
             >
-              <span className="text-white">Advanced Care.</span>
+              <span className="text-white">{t('hero.headline1')}</span>
               <br />
-              <span className="gradient-text">Human Touch.</span>
+              <span className="gradient-text">{t('hero.headline2')}</span>
             </motion.h1>
 
             {/* Subheadline */}
@@ -120,8 +116,7 @@ export default function HeroSection() {
               variants={fadeUp}
               className="mt-5 sm:mt-7 text-base sm:text-lg lg:text-xl text-white/55 max-w-xl leading-relaxed"
             >
-              World‑class gynecology & obstetrics care powered by cutting‑edge technology,
-              delivered with compassionate healing that puts every woman at the heart of everything we do.
+              {t('hero.subheadline')}
             </motion.p>
 
             {/* CTA Buttons */}
@@ -134,7 +129,7 @@ export default function HeroSection() {
                 href="#appointment"
                 className="btn-glow group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-gradient-to-r from-[#0066FF] to-[#0044CC] text-white font-semibold text-base sm:text-lg transition-all duration-300"
               >
-                Book Appointment
+                {t('hero.bookAppointment')}
                 <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
               </a>
 
@@ -144,7 +139,7 @@ export default function HeroSection() {
                 className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full border border-red-400/30 bg-red-500/10 text-red-300 hover:text-white hover:border-red-400/60 hover:bg-red-500/20 font-semibold text-base sm:text-lg transition-all duration-300"
               >
                 <Phone className="w-5 h-5 animate-pulse" />
-                Emergency Help
+                {t('hero.emergencyHelp')}
               </a>
 
               {/* Tertiary: Find Doctor */}
@@ -153,7 +148,7 @@ export default function HeroSection() {
                 className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full border border-white/15 text-white/75 hover:text-white hover:border-[#00D4FF]/50 hover:bg-white/[0.04] font-semibold text-base sm:text-lg transition-all duration-300"
               >
                 <Search className="w-5 h-5" />
-                Find Doctor
+                {t('hero.findDoctor')}
               </a>
             </motion.div>
 
@@ -184,7 +179,7 @@ export default function HeroSection() {
                   <span className="ml-1.5 text-sm font-bold text-white">4.9</span>
                 </div>
                 <span className="text-xs text-white/40 font-medium">
-                  Trusted by 50,000+ mothers & families
+                  {t('hero.trustedBy')}
                 </span>
               </div>
             </motion.div>
@@ -205,7 +200,7 @@ export default function HeroSection() {
                   {/* Real hospital building photo */}
                   <img
                     src="/hospital-building.png"
-                    alt="Sparsh Women's Hospital"
+                    alt={t('hero.hospitalName')}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
 
@@ -273,14 +268,14 @@ export default function HeroSection() {
                 {/* Card info bar */}
                 <div className="p-5 flex items-center justify-between">
                   <div>
-                    <h3 className="font-bold text-white text-sm">Sparsh Women&apos;s Hospital</h3>
+                    <h3 className="font-bold text-white text-sm">{t('hero.hospitalName')}</h3>
                     <p className="text-xs text-white/40 mt-0.5">
-                      Jafrabad Road, Pipavav, Rajula-365560, Gujarat
+                      {t('hero.address')}
                     </p>
                   </div>
                   <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
                     <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                    <span className="text-xs font-medium text-green-400">Open Now</span>
+                    <span className="text-xs font-medium text-green-400">{t('hero.openNow')}</span>
                   </div>
                 </div>
               </div>
@@ -297,7 +292,7 @@ export default function HeroSection() {
                 </div>
                 <div>
                   <p className="text-xs font-bold text-white">8+</p>
-                  <p className="text-[10px] text-white/40">Years</p>
+                  <p className="text-[10px] text-white/40">{t('hero.years')}</p>
                 </div>
               </motion.div>
 
@@ -312,7 +307,7 @@ export default function HeroSection() {
                 </div>
                 <div>
                   <p className="text-xs font-bold text-white">50K+</p>
-                  <p className="text-[10px] text-white/40">Patients Served</p>
+                  <p className="text-[10px] text-white/40">{t('hero.patientsServed')}</p>
                 </div>
               </motion.div>
 
@@ -335,7 +330,7 @@ export default function HeroSection() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-5 sm:gap-8">
               {stats.map((stat, i) => (
                 <motion.div
-                  key={stat.label}
+                  key={stat.labelKey}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 1.4 + i * 0.1 }}
@@ -349,7 +344,7 @@ export default function HeroSection() {
                       {stat.value}
                     </div>
                     <div className="text-xs sm:text-sm text-white/45 font-medium mt-0.5">
-                      {stat.label}
+                      {t(stat.labelKey)}
                     </div>
                   </div>
                 </motion.div>
@@ -367,7 +362,7 @@ export default function HeroSection() {
         className="absolute bottom-3 sm:bottom-5 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center gap-1.5"
       >
         <span className="text-[10px] text-white/25 uppercase tracking-[0.2em] font-medium">
-          Scroll to explore
+          {t('hero.scrollToExplore')}
         </span>
         <div className="w-5 h-8 rounded-full border border-white/15 flex items-start justify-center p-1.5">
           <motion.div

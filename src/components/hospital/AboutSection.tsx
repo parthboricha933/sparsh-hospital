@@ -13,6 +13,7 @@ import {
   CheckCircle2,
   CircleDot,
 } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 /* ─── Animated Counter ─── */
 function GlowCounter({
@@ -77,30 +78,30 @@ function GlowCounter({
 }
 
 /* ─── Timeline Data ─── */
-const timeline = [
-  { year: '2017', event: 'Sparsh Women\'s Hospital founded by Dr. Vijay Ladumor with a vision for women\'s health' },
-  { year: '2018', event: 'First advanced laparoscopic surgery unit for gynecology established' },
-  { year: '2019', event: 'State-of-the-art NICU & high-risk pregnancy wing inaugurated' },
-  { year: '2021', event: 'Fertility & IVF centre of excellence launched' },
-  { year: '2023', event: '5,000+ successful deliveries milestone reached' },
-  { year: '2025', event: 'Advanced gynecologic diagnostics & minimally invasive surgery wing expanded' },
+const timelineKeys = [
+  { year: '2017', key: 'about.timeline2017' },
+  { year: '2018', key: 'about.timeline2018' },
+  { year: '2019', key: 'about.timeline2019' },
+  { year: '2021', key: 'about.timeline2021' },
+  { year: '2023', key: 'about.timeline2023' },
+  { year: '2025', key: 'about.timeline2025' },
 ];
 
 /* ─── Trust Badges ─── */
-const trustBadges = [
-  { icon: HeartPulse, label: 'Emergency Excellence', color: '#FF6B8A' },
-  { icon: Baby, label: 'Patient Safety Focus', color: '#00E5FF' },
-  { icon: ShieldCheck, label: 'ISO Certified', color: '#00D4FF' },
+const trustBadgeKeys = [
+  { icon: HeartPulse, labelKey: 'about.trustBadge1', color: '#FF6B8A' },
+  { icon: Baby, labelKey: 'about.trustBadge2', color: '#00E5FF' },
+  { icon: ShieldCheck, labelKey: 'about.trustBadge3', color: '#00D4FF' },
 ];
 
 /* ─── Commitment Points ─── */
-const commitments = [
-  'Advanced laparoscopic & robotic surgical systems',
-  'Dedicated high-risk pregnancy & NICU wing',
-  '24/7 emergency obstetric & gynecologic care',
-  'Fertility & reproductive medicine centre of excellence',
-  'Women-centric compassionate care environment',
-  'Internationally trained gynecologic specialists',
+const commitmentKeys = [
+  'about.commitment1',
+  'about.commitment2',
+  'about.commitment3',
+  'about.commitment4',
+  'about.commitment5',
+  'about.commitment6',
 ];
 
 /* ─── Fade-in wrapper ─── */
@@ -138,6 +139,8 @@ function FadeIn({
    About Section
    ────────────────────────────────────────────── */
 export default function AboutSection() {
+  const { t } = useLanguage();
+
   return (
     <section id="about" className="relative py-20 sm:py-28 overflow-hidden">
       {/* ── Background: smooth merge from hero ── */}
@@ -151,16 +154,19 @@ export default function AboutSection() {
         <FadeIn>
           <div className="text-center mb-16 sm:mb-20">
             <span className="text-sm font-semibold text-[#00D4FF] uppercase tracking-widest">
-              About Sparsh
+              {t('about.subtitle')}
             </span>
             <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-bold">
-              Dedicated to{' '}
-              <span className="gradient-text">Women&apos;s Health</span>
+              {t('about.heading').split(' ').map((word, i, arr) =>
+                i === arr.length - 1 ? (
+                  <span key={i} className="gradient-text">{word}</span>
+                ) : (
+                  <span key={i}>{word} </span>
+                )
+              )}
             </h2>
             <p className="mt-4 text-white/45 max-w-2xl mx-auto leading-relaxed">
-              Since 2017, Sparsh Hospital has been the region&apos;s most trusted
-              name in gynecology and obstetrics — where clinical excellence meets
-              genuine compassion for every woman who walks through our doors.
+              {t('about.description')}
             </p>
             <div className="mt-5 w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-[#0066FF] to-[#00D4FF]" />
           </div>
@@ -178,7 +184,7 @@ export default function AboutSection() {
                   {/* Real hospital building photo */}
                   <img
                     src="/hospital-building.png"
-                    alt="Sparsh Women's Hospital Building"
+                    alt={t('about.hospitalName') || "Sparsh Women's Hospital Building"}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
 
@@ -217,12 +223,12 @@ export default function AboutSection() {
                   {/* Floating accent elements */}
                   <div className="absolute top-4 left-4 glass-card px-3 py-2 flex items-center gap-2 shadow-[0_0_10px_rgba(0,102,255,0.2)]">
                     <Sparkles className="w-3.5 h-3.5 text-[#FF6B8A]" />
-                    <span className="text-[10px] sm:text-xs text-white/80 font-medium">Est. 2017</span>
+                    <span className="text-[10px] sm:text-xs text-white/80 font-medium">{t('about.estYear')}</span>
                   </div>
 
                   <div className="absolute bottom-4 right-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-500/15 border border-green-500/25 backdrop-blur-md">
                     <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                    <span className="text-[10px] sm:text-xs font-medium text-green-400">Open 24/7</span>
+                    <span className="text-[10px] sm:text-xs font-medium text-green-400">{t('about.open247')}</span>
                   </div>
 
                   {/* Top gradient fade for seamless merge */}
@@ -235,16 +241,16 @@ export default function AboutSection() {
                 {/* Bottom info strip */}
                 <div className="p-4 sm:p-5 flex items-center justify-between relative">
                   <div>
-                    <h3 className="font-bold text-white text-sm">Sparsh Women&apos;s Hospital</h3>
-                    <p className="text-[11px] text-[#00D4FF]/60 mt-0.5">Founded by Dr. Vijay Ladumor</p>
-                    <p className="text-[11px] text-white/35 mt-0.5">Jafrabad Road, Pipavav, Rajula-365560, Gujarat</p>
+                    <h3 className="font-bold text-white text-sm">{t('about.hospitalName')}</h3>
+                    <p className="text-[11px] text-[#00D4FF]/60 mt-0.5">{t('about.foundedBy')}</p>
+                    <p className="text-[11px] text-white/35 mt-0.5">{t('about.fullAddress')}</p>
                   </div>
                   <div className="flex items-center gap-2">
-                    {trustBadges.map((badge) => (
+                    {trustBadgeKeys.map((badge) => (
                       <div
-                        key={badge.label}
+                        key={badge.labelKey}
                         className="w-7 h-7 rounded-lg bg-white/[0.04] border border-white/10 flex items-center justify-center"
-                        title={badge.label}
+                        title={t(badge.labelKey)}
                       >
                         <badge.icon className="w-3.5 h-3.5" style={{ color: badge.color }} />
                       </div>
@@ -266,7 +272,7 @@ export default function AboutSection() {
                 </div>
                 <div>
                   <p className="text-[10px] sm:text-xs font-bold text-white">8+</p>
-                  <p className="text-[9px] text-white/35">Years</p>
+                  <p className="text-[9px] text-white/35">{t('about.years')}</p>
                 </div>
               </motion.div>
 
@@ -283,7 +289,7 @@ export default function AboutSection() {
                 </div>
                 <div>
                   <p className="text-[10px] sm:text-xs font-bold text-white">8+ Yrs</p>
-                  <p className="text-[9px] text-white/35">Excellence</p>
+                  <p className="text-[9px] text-white/35">{t('about.yrsExcellence')}</p>
                 </div>
               </motion.div>
 
@@ -301,13 +307,10 @@ export default function AboutSection() {
                   <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#0066FF]/20 to-[#00D4FF]/20 flex items-center justify-center">
                     <Target className="w-4.5 h-4.5 text-[#00D4FF]" />
                   </div>
-                  Our Mission
+                  {t('about.mission')}
                 </h3>
                 <p className="mt-3 text-white/55 leading-relaxed pl-[46px]">
-                  To provide every woman with access to world-class gynecological care that
-                  combines cutting-edge medical science with warmth, dignity, and unwavering
-                  respect for her choices. We believe healthcare for women should empower, not
-                  just treat — and every protocol at Sparsh is designed around that belief.
+                  {t('about.missionText')}
                 </p>
               </div>
 
@@ -317,12 +320,10 @@ export default function AboutSection() {
                   <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FF6B8A]/20 to-[#FF8FA3]/20 flex items-center justify-center">
                     <Eye className="w-4.5 h-4.5 text-[#FF6B8A]" />
                   </div>
-                  Our Vision
+                  {t('about.vision')}
                 </h3>
                 <p className="mt-3 text-white/55 leading-relaxed pl-[46px]">
-                  To be India&apos;s most trusted gynecology hospital — setting the national
-                  benchmark in women&apos;s healthcare through clinical innovation, surgical
-                  precision, and a patient-first philosophy that treats every woman like family.
+                  {t('about.visionText')}
                 </p>
               </div>
 
@@ -332,12 +333,12 @@ export default function AboutSection() {
                   <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#0066FF]/20 to-[#00E5FF]/20 flex items-center justify-center">
                     <Award className="w-4.5 h-4.5 text-[#00E5FF]" />
                   </div>
-                  Our Commitment
+                  {t('about.commitment')}
                 </h3>
                 <ul className="mt-3 pl-[46px] space-y-2.5">
-                  {commitments.map((item, i) => (
+                  {commitmentKeys.map((key, i) => (
                     <motion.li
-                      key={i}
+                      key={key}
                       initial={{ opacity: 0, x: 10 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
@@ -345,7 +346,7 @@ export default function AboutSection() {
                       className="flex items-start gap-2.5 text-white/55 text-sm leading-relaxed"
                     >
                       <CheckCircle2 className="w-4 h-4 text-[#00D4FF] flex-shrink-0 mt-0.5" />
-                      {item}
+                      {t(key)}
                     </motion.li>
                   ))}
                 </ul>
@@ -353,9 +354,9 @@ export default function AboutSection() {
 
               {/* Trust Badges Row */}
               <div className="pt-2 flex flex-wrap gap-3">
-                {trustBadges.map((badge, i) => (
+                {trustBadgeKeys.map((badge, i) => (
                   <motion.div
-                    key={badge.label}
+                    key={badge.labelKey}
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
@@ -364,7 +365,7 @@ export default function AboutSection() {
                   >
                     <badge.icon className="w-4.5 h-4.5" style={{ color: badge.color }} />
                     <span className="text-xs sm:text-sm font-semibold text-white/75 group-hover:text-white transition-colors">
-                      {badge.label}
+                      {t(badge.labelKey)}
                     </span>
                   </motion.div>
                 ))}
@@ -378,10 +379,10 @@ export default function AboutSection() {
           <div className="mt-20 sm:mt-24">
             <div className="text-center mb-12">
               <span className="text-sm font-semibold text-[#00D4FF] uppercase tracking-widest">
-                Our Journey
+                {t('about.journey')}
               </span>
               <h3 className="mt-2 text-2xl sm:text-3xl font-bold">
-                8+ Years of <span className="gradient-text">Excellence</span>
+                {t('about.journeyHeading')}
               </h3>
               <div className="mt-3 w-16 h-0.5 mx-auto rounded-full bg-gradient-to-r from-[#0066FF] to-[#00D4FF]" />
             </div>
@@ -392,7 +393,7 @@ export default function AboutSection() {
               <div className="absolute left-4 sm:left-1/2 sm:-translate-x-px top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#0066FF]/40 via-[#00D4FF]/30 to-[#0066FF]/10" />
 
               <div className="space-y-8 sm:space-y-10">
-                {timeline.map((item, i) => (
+                {timelineKeys.map((item, i) => (
                   <motion.div
                     key={item.year}
                     initial={{ opacity: 0, y: 30 }}
@@ -417,7 +418,7 @@ export default function AboutSection() {
                           {item.year}
                         </span>
                         <p className="mt-1 text-xs sm:text-sm text-white/50 leading-relaxed">
-                          {item.event}
+                          {t(item.key)}
                         </p>
                       </div>
                     </div>
@@ -434,10 +435,10 @@ export default function AboutSection() {
         {/* ── Floating Glowing Counters ── */}
         <div className="mt-20 sm:mt-24">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-            <GlowCounter value={8} suffix="+" label="Years of Excellence" delay={0} />
-            <GlowCounter value={100} suffix="+" label="Gynecology Experts" delay={0.08} />
-            <GlowCounter value={50000} suffix="+" label="Happy Mothers" delay={0.16} display="50K+" />
-            <GlowCounter value={10000} suffix="+" label="Successful Deliveries" delay={0.24} display="10K+" />
+            <GlowCounter value={8} suffix="+" label={t('about.counterYears')} delay={0} />
+            <GlowCounter value={100} suffix="+" label={t('about.counterExperts')} delay={0.08} />
+            <GlowCounter value={50000} suffix="+" label={t('about.counterMothers')} delay={0.16} display="50K+" />
+            <GlowCounter value={10000} suffix="+" label={t('about.counterDeliveries')} delay={0.24} display="10K+" />
           </div>
         </div>
       </div>
