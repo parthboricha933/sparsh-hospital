@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Plus, Phone, Mail, MapPin, ArrowUp, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowUp, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
 
 const quickLinks = [
   { name: 'Home', href: '#home' },
@@ -62,10 +62,12 @@ export default function Footer() {
         <div className="py-12 sm:py-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-8">
           {/* Hospital Info */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <a href="#home" className="flex items-center gap-2 mb-5">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#0066FF] to-[#00D4FF] flex items-center justify-center shadow-[0_0_15px_rgba(0,102,255,0.4)]">
-                <Plus className="w-5 h-5 text-white" strokeWidth={3} />
-              </div>
+            <a href="#home" className="flex items-center gap-2.5 mb-5">
+              <img
+                src="/logo.png"
+                alt="Sparsh Hospital Logo"
+                className="w-9 h-9 rounded-lg object-contain shadow-[0_0_15px_rgba(0,102,255,0.4)]"
+              />
               <span className="text-xl font-bold">
                 <span className="text-white">Sparsh</span>{' '}
                 <span className="text-[#00D4FF]">Gynecology</span>
@@ -141,8 +143,8 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-[#00D4FF] mt-0.5 flex-shrink-0" />
                 <p className="text-white/60 text-sm">
-                  123 Healthcare Avenue,<br />
-                  Bangalore, Karnataka 560001
+                  Jafrabad Road, Opp. Honda Showroom,<br />
+                  Pipavav, Rajula-365560, Gujarat
                 </p>
               </li>
             </ul>

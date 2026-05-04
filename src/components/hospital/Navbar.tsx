@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Phone, Plus } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -41,10 +41,12 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo */}
-            <a href="#home" className="flex items-center gap-2 group">
-              <div className="relative flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-[#0066FF] to-[#00D4FF] shadow-[0_0_15px_rgba(0,102,255,0.4)] group-hover:shadow-[0_0_25px_rgba(0,212,255,0.5)] transition-shadow duration-300">
-                <Plus className="w-5 h-5 sm:w-6 sm:h-6 text-white" strokeWidth={3} />
-              </div>
+            <a href="#home" className="flex items-center gap-2.5 group">
+              <img
+                src="/logo.png"
+                alt="Sparsh Hospital Logo"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg object-contain group-hover:shadow-[0_0_25px_rgba(0,212,255,0.5)] transition-shadow duration-300"
+              />
               <span className="text-lg sm:text-xl font-bold tracking-tight">
                 <span className="text-white">Sparsh</span>{' '}
                 <span className="text-[#00D4FF]">Hospital</span>
@@ -115,10 +117,13 @@ export default function Navbar() {
             >
               <div className="flex flex-col h-full p-6">
                 <div className="flex justify-between items-center mb-8">
-                  <span className="text-lg font-bold">
-                    <span className="text-white">Sparsh</span>{' '}
-                    <span className="text-[#00D4FF]">Hospital</span>
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <img src="/logo.png" alt="Sparsh Hospital Logo" className="w-7 h-7 rounded object-contain" />
+                    <span className="text-lg font-bold">
+                      <span className="text-white">Sparsh</span>{' '}
+                      <span className="text-[#00D4FF]">Hospital</span>
+                    </span>
+                  </div>
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="p-2 text-white/70 hover:text-white"

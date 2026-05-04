@@ -275,7 +275,7 @@ export default function HeroSection() {
                   <div>
                     <h3 className="font-bold text-white text-sm">Sparsh Women&apos;s Hospital</h3>
                     <p className="text-xs text-white/40 mt-0.5">
-                      Bangalore, India
+                      Jafrabad Road, Pipavav, Rajula-365560, Gujarat
                     </p>
                   </div>
                   <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">

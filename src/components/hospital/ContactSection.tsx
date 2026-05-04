@@ -29,7 +29,7 @@ const contactInfo = [
   {
     icon: MapPin,
     label: 'Visit Us',
-    value: '123 Healthcare Avenue, Bangalore, Karnataka 560001',
+    value: 'Jafrabad Road, Opp. Honda Showroom, Pipavav, Rajula-365560, Gujarat',
     sublabel: '',
   },
   {
@@ -129,7 +129,7 @@ export default function ContactSection() {
                 <div className="text-center">
                   <MapPin className="w-8 h-8 text-[#00D4FF]/50 mx-auto mb-2" />
                   <p className="text-white/30 text-sm">Sparsh Hospital</p>
-                  <p className="text-white/20 text-xs mt-1">Bangalore, India</p>
+                  <p className="text-white/20 text-xs mt-1">Pipavav, Rajula, Gujarat</p>
                 </div>
               </div>
               {/* Decorative grid pattern */}

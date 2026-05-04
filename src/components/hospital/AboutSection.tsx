@@ -237,7 +237,7 @@ export default function AboutSection() {
                   <div>
                     <h3 className="font-bold text-white text-sm">Sparsh Women&apos;s Hospital</h3>
                     <p className="text-[11px] text-[#00D4FF]/60 mt-0.5">Founded by Dr. Vijay Ladumor</p>
-                    <p className="text-[11px] text-white/35 mt-0.5">Bangalore, India</p>
+                    <p className="text-[11px] text-white/35 mt-0.5">Jafrabad Road, Pipavav, Rajula-365560, Gujarat</p>
                   </div>
                   <div className="flex items-center gap-2">
                     {trustBadges.map((badge) => (
