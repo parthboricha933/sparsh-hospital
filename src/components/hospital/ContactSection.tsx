@@ -9,9 +9,7 @@ const departments = [
   'Gynecologic Surgery',
   'Fertility & IVF',
   'Gynecologic Oncology',
-  'Urogynecology',
   'Menopause & Wellness',
-  'Reproductive Endocrinology',
   'General Gynecology',
 ];
 

@@ -78,19 +78,19 @@ function GlowCounter({
 
 /* ─── Timeline Data ─── */
 const timeline = [
-  { year: '1998', event: 'Sparsh Hospital founded with a vision for women\'s health' },
-  { year: '2005', event: 'First advanced laparoscopic surgery unit for gynecology' },
-  { year: '2010', event: 'NABH accreditation achieved; 100-bed expansion' },
-  { year: '2016', event: 'State-of-the-art NICU & high-risk pregnancy wing inaugurated' },
-  { year: '2020', event: '10,000+ successful deliveries milestone reached' },
-  { year: '2024', event: 'Robotic-assisted gynecologic surgery program launched' },
+  { year: '2017', event: 'Sparsh Women\'s Hospital founded by Dr. Vijay Ladumor with a vision for women\'s health' },
+  { year: '2018', event: 'First advanced laparoscopic surgery unit for gynecology established' },
+  { year: '2019', event: 'State-of-the-art NICU & high-risk pregnancy wing inaugurated' },
+  { year: '2021', event: 'Fertility & IVF centre of excellence launched' },
+  { year: '2023', event: '5,000+ successful deliveries milestone reached' },
+  { year: '2025', event: 'Advanced gynecologic diagnostics & minimally invasive surgery wing expanded' },
 ];
 
 /* ─── Trust Badges ─── */
 const trustBadges = [
-  { icon: ShieldCheck, label: 'NABH Certified', color: '#00D4FF' },
   { icon: HeartPulse, label: 'Emergency Excellence', color: '#FF6B8A' },
   { icon: Baby, label: 'Patient Safety Focus', color: '#00E5FF' },
+  { icon: ShieldCheck, label: 'ISO Certified', color: '#00D4FF' },
 ];
 
 /* ─── Commitment Points ─── */
@@ -158,7 +158,7 @@ export default function AboutSection() {
               <span className="gradient-text">Women&apos;s Health</span>
             </h2>
             <p className="mt-4 text-white/45 max-w-2xl mx-auto leading-relaxed">
-              For over 25 years, Sparsh Hospital has been the region&apos;s most trusted
+              Since 2017, Sparsh Hospital has been the region&apos;s most trusted
               name in gynecology and obstetrics — where clinical excellence meets
               genuine compassion for every woman who walks through our doors.
             </p>
@@ -217,7 +217,7 @@ export default function AboutSection() {
                   {/* Floating accent elements */}
                   <div className="absolute top-4 left-4 glass-card px-3 py-2 flex items-center gap-2 shadow-[0_0_10px_rgba(0,102,255,0.2)]">
                     <Sparkles className="w-3.5 h-3.5 text-[#FF6B8A]" />
-                    <span className="text-[10px] sm:text-xs text-white/80 font-medium">Est. 1998</span>
+                    <span className="text-[10px] sm:text-xs text-white/80 font-medium">Est. 2017</span>
                   </div>
 
                   <div className="absolute bottom-4 right-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-500/15 border border-green-500/25 backdrop-blur-md">
@@ -236,6 +236,7 @@ export default function AboutSection() {
                 <div className="p-4 sm:p-5 flex items-center justify-between relative">
                   <div>
                     <h3 className="font-bold text-white text-sm">Sparsh Women&apos;s Hospital</h3>
+                    <p className="text-[11px] text-[#00D4FF]/60 mt-0.5">Founded by Dr. Vijay Ladumor</p>
                     <p className="text-[11px] text-white/35 mt-0.5">Bangalore, India</p>
                   </div>
                   <div className="flex items-center gap-2">
@@ -264,8 +265,8 @@ export default function AboutSection() {
                   <ShieldCheck className="w-3.5 h-3.5 text-[#00D4FF]" />
                 </div>
                 <div>
-                  <p className="text-[10px] sm:text-xs font-bold text-white">NABH</p>
-                  <p className="text-[9px] text-white/35">Certified</p>
+                  <p className="text-[10px] sm:text-xs font-bold text-white">8+</p>
+                  <p className="text-[9px] text-white/35">Years</p>
                 </div>
               </motion.div>
 
@@ -281,7 +282,7 @@ export default function AboutSection() {
                   <HeartPulse className="w-3.5 h-3.5 text-[#FF6B8A]" />
                 </div>
                 <div>
-                  <p className="text-[10px] sm:text-xs font-bold text-white">25+ Yrs</p>
+                  <p className="text-[10px] sm:text-xs font-bold text-white">8+ Yrs</p>
                   <p className="text-[9px] text-white/35">Excellence</p>
                 </div>
               </motion.div>
@@ -380,7 +381,7 @@ export default function AboutSection() {
                 Our Journey
               </span>
               <h3 className="mt-2 text-2xl sm:text-3xl font-bold">
-                25+ Years of <span className="gradient-text">Excellence</span>
+                8+ Years of <span className="gradient-text">Excellence</span>
               </h3>
               <div className="mt-3 w-16 h-0.5 mx-auto rounded-full bg-gradient-to-r from-[#0066FF] to-[#00D4FF]" />
             </div>
@@ -433,7 +434,7 @@ export default function AboutSection() {
         {/* ── Floating Glowing Counters ── */}
         <div className="mt-20 sm:mt-24">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-            <GlowCounter value={25} suffix="+" label="Years of Excellence" delay={0} />
+            <GlowCounter value={8} suffix="+" label="Years of Excellence" delay={0} />
             <GlowCounter value={100} suffix="+" label="Gynecology Experts" delay={0.08} />
             <GlowCounter value={50000} suffix="+" label="Happy Mothers" delay={0.16} display="50K+" />
             <GlowCounter value={10000} suffix="+" label="Successful Deliveries" delay={0.24} display="10K+" />

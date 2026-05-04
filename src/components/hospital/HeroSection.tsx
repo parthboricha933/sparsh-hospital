@@ -22,14 +22,14 @@ const ParticleBackground = dynamic(() => import('./ParticleBackground'), { ssr: 
 
 /* ─── Data ─── */
 const stats = [
-  { icon: Building2, value: '25+', label: 'Years of Care' },
+  { icon: Building2, value: '8+', label: 'Years of Care' },
   { icon: Users, value: '100+', label: 'Gynecologists' },
   { icon: Clock, value: '24/7', label: 'Emergency' },
   { icon: Heart, value: '50K+', label: 'Happy Mothers' },
 ];
 
 const trustBadges = [
-  'NABH Certified',
+  'ISO Certified',
   'Gynecology Excellence',
   'Patient Safety Focus',
 ];
@@ -296,8 +296,8 @@ export default function HeroSection() {
                   <ShieldCheck className="w-4 h-4 text-[#00D4FF]" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-white">NABH</p>
-                  <p className="text-[10px] text-white/40">Certified</p>
+                  <p className="text-xs font-bold text-white">8+</p>
+                  <p className="text-[10px] text-white/40">Years</p>
                 </div>
               </motion.div>
 

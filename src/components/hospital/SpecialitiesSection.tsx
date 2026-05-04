@@ -6,8 +6,8 @@ import {
   HeartPulse,
   Sparkles,
   ScanLine,
-  Activity,
   Pill,
+  Stethoscope,
 } from 'lucide-react';
 
 const specialities = [
@@ -32,14 +32,14 @@ const specialities = [
     desc: 'Specialised screening, early detection, and advanced treatment for cervical, ovarian, and uterine cancers — combining surgical expertise with compassionate support.',
   },
   {
-    icon: Activity,
-    title: 'Urogynecology',
-    desc: 'Expert evaluation and treatment for pelvic floor disorders, urinary incontinence, and pelvic organ prolapse using both conservative and advanced surgical approaches.',
-  },
-  {
     icon: Pill,
     title: 'Menopause & Wellness',
     desc: 'Holistic menopause management including hormone replacement therapy, bone health screening, cardiovascular risk assessment, and emotional wellbeing support.',
+  },
+  {
+    icon: Stethoscope,
+    title: 'General Gynecology',
+    desc: 'Comprehensive women\'s health consultations covering routine check-ups, menstrual disorders, PCOS management, contraceptive counselling, and preventive healthcare.',
   },
 ];
 
@@ -67,7 +67,7 @@ export default function SpecialitiesSection() {
             Gynecology Centres of <span className="gradient-text">Excellence</span>
           </h2>
           <p className="mt-4 text-white/50 max-w-2xl mx-auto">
-            Six specialised gynecology divisions — each equipped with cutting-edge technology
+            Five specialised gynecology divisions — each equipped with cutting-edge technology
             and staffed by internationally trained women&apos;s health specialists.
           </p>
           <div className="mt-4 w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-[#0066FF] to-[#00D4FF]" />

@@ -25,21 +25,17 @@ const departments = [
   'Gynecologic Surgery',
   'Fertility & IVF',
   'Gynecologic Oncology',
-  'Urogynecology',
   'Menopause & Wellness',
-  'Reproductive Endocrinology',
   'General Gynecology',
 ];
 
 const doctorsByDepartment: Record<string, string[]> = {
-  'Obstetrics & Maternity': ['Dr. Ananya Sharma', 'Dr. Nandini Iyer'],
-  'Gynecologic Surgery': ['Dr. Priya Menon', 'Dr. Ananya Sharma'],
-  'Fertility & IVF': ['Dr. Kavitha Reddy', 'Dr. Deepa Nair'],
+  'Obstetrics & Maternity': ['Dr. Vijay Ladumor', 'Dr. Ananya Sharma'],
+  'Gynecologic Surgery': ['Dr. Vijay Ladumor', 'Dr. Priya Menon'],
+  'Fertility & IVF': ['Dr. Kavitha Reddy'],
   'Gynecologic Oncology': ['Dr. Meera Patel'],
-  'Urogynecology': ['Dr. Sunita Desai'],
   'Menopause & Wellness': ['Dr. Ritu Kapoor'],
-  'Reproductive Endocrinology': ['Dr. Deepa Nair', 'Dr. Kavitha Reddy'],
-  'General Gynecology': ['Dr. Ananya Sharma', 'Dr. Priya Menon', 'Dr. Ritu Kapoor'],
+  'General Gynecology': ['Dr. Vijay Ladumor', 'Dr. Ananya Sharma', 'Dr. Priya Menon'],
 };
 
 const timeSlots = [

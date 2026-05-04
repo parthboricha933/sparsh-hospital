@@ -5,52 +5,46 @@ import { User, Star } from 'lucide-react';
 
 const doctors = [
   {
+    name: 'Dr. Vijay Ladumor',
+    speciality: 'Founder & Chief Gynecologist',
+    experience: '15+ Years',
+    qualification: 'M.B.DG.O',
+  },
+  {
     name: 'Dr. Ananya Sharma',
     speciality: 'Obstetrics & High-Risk Pregnancy',
-    experience: '20+ Years',
-    qualification: 'MBBS, MS OB-GYN, FRCOG',
+    experience: '12+ Years',
+    qualification: 'MBBS, MS OB-GYN',
   },
   {
     name: 'Dr. Priya Menon',
     speciality: 'Laparoscopic & Robotic Surgery',
-    experience: '18+ Years',
+    experience: '10+ Years',
     qualification: 'MBBS, MS OB-GYN, Fellowship',
   },
   {
     name: 'Dr. Kavitha Reddy',
     speciality: 'Fertility & IVF Specialist',
-    experience: '16+ Years',
-    qualification: 'MBBS, MS OB-GYN, FRCOG',
+    experience: '9+ Years',
+    qualification: 'MBBS, MS OB-GYN',
   },
   {
     name: 'Dr. Meera Patel',
     speciality: 'Gynecologic Oncology',
-    experience: '17+ Years',
+    experience: '11+ Years',
     qualification: 'MBBS, MS, Fellowship Gyn-Onc',
-  },
-  {
-    name: 'Dr. Sunita Desai',
-    speciality: 'Urogynecology & Pelvic Floor',
-    experience: '14+ Years',
-    qualification: 'MBBS, MS OB-GYN, Fellowship',
   },
   {
     name: 'Dr. Ritu Kapoor',
     speciality: 'Menopause & Wellness',
-    experience: '15+ Years',
-    qualification: 'MBBS, MD OB-GYN, Certification',
+    experience: '8+ Years',
+    qualification: 'MBBS, MD OB-GYN',
   },
   {
     name: 'Dr. Nandini Iyer',
     speciality: 'Maternal-Fetal Medicine',
-    experience: '12+ Years',
+    experience: '7+ Years',
     qualification: 'MBBS, MS OB-GYN, DM MFM',
-  },
-  {
-    name: 'Dr. Deepa Nair',
-    speciality: 'Reproductive Endocrinology',
-    experience: '13+ Years',
-    qualification: 'MBBS, MS OB-GYN, Fellowship',
   },
 ];
 

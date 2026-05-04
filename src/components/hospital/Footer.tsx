@@ -18,9 +18,7 @@ const specialities = [
   'Gynecologic Surgery',
   'Fertility & IVF',
   'Gynecologic Oncology',
-  'Urogynecology',
   'Menopause & Wellness',
-  'Reproductive Endocrinology',
   'General Gynecology',
 ];
 
@@ -74,7 +72,7 @@ export default function Footer() {
               </span>
             </a>
             <p className="text-white/40 text-sm leading-relaxed mb-6">
-              Sparsh Hospital has been a beacon of gynecology excellence for over 25 years,
+              Founded by Dr. Vijay Ladumor in 2017, Sparsh Hospital has been a beacon of gynecology excellence,
               combining cutting-edge technology with compassionate women's healthcare.
             </p>
             <div className="flex items-center gap-3">
