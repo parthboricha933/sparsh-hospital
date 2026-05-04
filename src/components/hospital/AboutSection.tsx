@@ -173,71 +173,69 @@ export default function AboutSection() {
             <div className="relative">
               {/* Main glass card frame */}
               <div className="glass-card rounded-3xl overflow-hidden relative">
-                {/* Image area – gradient art + holographic medical visuals */}
+                {/* Hospital Photo with futuristic overlays */}
                 <div className="relative aspect-[4/3] sm:aspect-[3/2.2] overflow-hidden">
-                  {/* Base gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#0D1333] via-[#111940] to-[#0A0E27]" />
+                  {/* Real hospital building photo */}
+                  <img
+                    src="/hospital-building.png"
+                    alt="Sparsh Women's Hospital Building"
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
 
-                  {/* Subtle dot grid */}
+                  {/* Blue-tinted overlay for futuristic feel */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#0066FF]/20 via-transparent to-[#00D4FF]/10" />
+
+                  {/* Dark vignette for depth & blending with dark theme */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0E27]/80 via-transparent to-[#0A0E27]/20" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#0A0E27]/30 via-transparent to-[#0A0E27]/40" />
+
+                  {/* Subtle scan-line overlay for futuristic effect */}
                   <div
-                    className="absolute inset-0 opacity-15"
+                    className="absolute inset-0 opacity-[0.03]"
                     style={{
-                      backgroundImage: 'radial-gradient(circle, rgba(0,212,255,0.25) 1px, transparent 1px)',
-                      backgroundSize: '24px 24px',
+                      backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,212,255,0.3) 2px, rgba(0,212,255,0.3) 3px)',
+                      backgroundSize: '100% 4px',
                     }}
                   />
 
-                  {/* Holographic medical visual – stylized female symbol + care imagery */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="relative">
-                      {/* Venus / female medical symbol */}
-                      <div className="relative w-32 h-32 sm:w-40 sm:h-40">
-                        {/* Circle of the symbol */}
-                        <div className="absolute inset-0 rounded-full border-[3px] border-[#00D4FF]/25 shadow-[0_0_30px_rgba(0,212,255,0.15)]" />
-                        <div className="absolute inset-3 rounded-full border border-[#0066FF]/15" />
-                        {/* Cross bar */}
-                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[3px] h-16 bg-gradient-to-b from-[#00D4FF]/40 to-[#00D4FF]/10" />
-                        {/* Small cross at bottom */}
-                        <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-8 h-[3px] bg-[#00D4FF]/30 rounded-full" />
-                        {/* Inner glow pulse */}
-                        <div className="absolute inset-6 rounded-full bg-[#00D4FF]/[0.06] animate-pulse-glow" />
-                        {/* Heartbeat line across */}
-                        <svg
-                          className="absolute top-1/2 -translate-y-1/2 left-0 w-full"
-                          viewBox="0 0 160 20"
-                          fill="none"
-                        >
-                          <path
-                            d="M0 10 L30 10 L38 10 L42 2 L48 18 L52 6 L56 14 L60 10 L90 10 L98 10 L102 3 L108 17 L112 7 L116 13 L120 10 L160 10"
-                            stroke="rgba(0,212,255,0.35)"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
+                  {/* Holographic heartbeat line across bottom */}
+                  <svg
+                    className="absolute bottom-8 left-0 w-full opacity-40"
+                    viewBox="0 0 400 24"
+                    fill="none"
+                    preserveAspectRatio="none"
+                  >
+                    <path
+                      d="M0 12 L80 12 L95 12 L102 3 L112 21 L120 7 L128 17 L136 12 L220 12 L235 12 L242 4 L252 20 L260 8 L268 16 L276 12 L400 12"
+                      stroke="rgba(0,212,255,0.6)"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
 
                   {/* Floating accent elements */}
-                  <div className="absolute top-5 left-5 glass-card px-3 py-2 flex items-center gap-2">
+                  <div className="absolute top-4 left-4 glass-card px-3 py-2 flex items-center gap-2 shadow-[0_0_10px_rgba(0,102,255,0.2)]">
                     <Sparkles className="w-3.5 h-3.5 text-[#FF6B8A]" />
-                    <span className="text-[10px] sm:text-xs text-white/60 font-medium">Est. 1998</span>
+                    <span className="text-[10px] sm:text-xs text-white/80 font-medium">Est. 1998</span>
                   </div>
 
-                  <div className="absolute bottom-4 right-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
+                  <div className="absolute bottom-4 right-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-500/15 border border-green-500/25 backdrop-blur-md">
                     <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
                     <span className="text-[10px] sm:text-xs font-medium text-green-400">Open 24/7</span>
                   </div>
 
-                  {/* Bottom gradient overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[rgba(255,255,255,0.05)] to-transparent" />
+                  {/* Top gradient fade for seamless merge */}
+                  <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-[#0A0E27]/40 to-transparent" />
+
+                  {/* Bottom gradient overlay into info strip */}
+                  <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0A0E27]/90 to-transparent" />
                 </div>
 
                 {/* Bottom info strip */}
-                <div className="p-4 sm:p-5 flex items-center justify-between">
+                <div className="p-4 sm:p-5 flex items-center justify-between relative">
                   <div>
-                    <h3 className="font-bold text-white text-sm">Sparsh Gynecology Hospital</h3>
+                    <h3 className="font-bold text-white text-sm">Sparsh Women&apos;s Hospital</h3>
                     <p className="text-[11px] text-white/35 mt-0.5">Bangalore, India</p>
                   </div>
                   <div className="flex items-center gap-2">

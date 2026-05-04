@@ -200,107 +200,80 @@ export default function HeroSection() {
             <div className="relative w-full max-w-md xl:max-w-lg">
               {/* Main glass card */}
               <div className="glass-card relative overflow-hidden p-0 rounded-3xl">
-                {/* Building visual – gradient art */}
+                {/* Building visual – real photo with futuristic overlays */}
                 <div className="relative h-72 xl:h-80 overflow-hidden">
-                  {/* Gradient building silhouette */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#0D1333] via-[#111940] to-[#0A0E27]" />
-                  {/* Grid overlay – hospital windows */}
+                  {/* Real hospital building photo */}
+                  <img
+                    src="/hospital-building.png"
+                    alt="Sparsh Women's Hospital"
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+
+                  {/* Blue-tinted overlay for futuristic feel */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#0066FF]/25 via-[#00D4FF]/5 to-[#0066FF]/15" />
+
+                  {/* Dark vignette for depth */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0E27]/85 via-[#0A0E27]/20 to-[#0A0E27]/30" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#0A0E27]/30 via-transparent to-[#0A0E27]/40" />
+
+                  {/* Scan-line overlay */}
                   <div
-                    className="absolute inset-0 opacity-20"
+                    className="absolute inset-0 opacity-[0.04]"
                     style={{
-                      backgroundImage:
-                        'linear-gradient(rgba(0,212,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.15) 1px, transparent 1px)',
-                      backgroundSize: '28px 28px',
+                      backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,212,255,0.3) 2px, rgba(0,212,255,0.3) 3px)',
+                      backgroundSize: '100% 4px',
                     }}
                   />
-                  {/* Glowing windows */}
+
+                  {/* Glowing holographic windows overlay */}
                   <div className="absolute inset-0">
-                    {Array.from({ length: 18 }).map((_, i) => (
+                    {Array.from({ length: 12 }).map((_, i) => (
                       <div
                         key={i}
                         className="absolute rounded-sm animate-pulse-glow"
                         style={{
-                          width: '10px',
-                          height: '10px',
-                          left: `${12 + (i % 6) * 15}%`,
-                          top: `${18 + Math.floor(i / 6) * 22}%`,
-                          background:
-                            i % 3 === 0
-                              ? 'rgba(0,212,255,0.25)'
-                              : i % 3 === 1
-                              ? 'rgba(0,102,255,0.2)'
-                              : 'rgba(179,229,252,0.15)',
-                          animationDelay: `${i * 0.4}s`,
+                          width: '8px',
+                          height: '8px',
+                          left: `${15 + (i % 4) * 20}%`,
+                          top: `${20 + Math.floor(i / 4) * 25}%`,
+                          background: 'rgba(0,212,255,0.3)',
+                          boxShadow: '0 0 8px rgba(0,212,255,0.4)',
+                          animationDelay: `${i * 0.5}s`,
                           animationDuration: `${2.5 + (i % 3)}s`,
                         }}
                       />
                     ))}
                   </div>
-                  {/* Central holographic building outline */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="relative">
-                      {/* Main tower */}
-                      <div className="w-28 xl:w-32 h-44 xl:h-52 rounded-t-lg border border-[#00D4FF]/20 bg-gradient-to-t from-[#00D4FF]/5 to-transparent relative">
-                        {/* Spire */}
-                        <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-0.5 h-6 bg-gradient-to-t from-[#00D4FF]/30 to-[#00D4FF]/70" />
-                        <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#00D4FF] shadow-[0_0_10px_rgba(0,212,255,0.6)]" />
-                        {/* Windows grid on tower */}
-                        <div className="grid grid-cols-4 gap-2 p-3 pt-4">
-                          {Array.from({ length: 16 }).map((_, i) => (
-                            <div
-                              key={i}
-                              className="w-3.5 h-3.5 rounded-[2px] animate-pulse-glow"
-                              style={{
-                                background: i % 5 === 0 ? 'rgba(0,212,255,0.35)' : 'rgba(0,102,255,0.15)',
-                                animationDelay: `${i * 0.3}s`,
-                                animationDuration: `${2 + (i % 4) * 0.5}s`,
-                              }}
-                            />
-                          ))}
-                        </div>
-                      </div>
-                      {/* Wing left */}
-                      <div className="absolute -left-16 bottom-0 w-14 h-24 rounded-t-md border border-[#0066FF]/15 bg-gradient-to-t from-[#0066FF]/5 to-transparent">
-                        <div className="grid grid-cols-3 gap-1.5 p-2 pt-3">
-                          {Array.from({ length: 9 }).map((_, i) => (
-                            <div
-                              key={i}
-                              className="w-2 h-2 rounded-[1px]"
-                              style={{
-                                background: i % 4 === 0 ? 'rgba(0,212,255,0.3)' : 'rgba(0,102,255,0.12)',
-                              }}
-                            />
-                          ))}
-                        </div>
-                      </div>
-                      {/* Wing right */}
-                      <div className="absolute -right-16 bottom-0 w-14 h-20 rounded-t-md border border-[#0066FF]/15 bg-gradient-to-t from-[#0066FF]/5 to-transparent">
-                        <div className="grid grid-cols-3 gap-1.5 p-2 pt-3">
-                          {Array.from({ length: 6 }).map((_, i) => (
-                            <div
-                              key={i}
-                              className="w-2 h-2 rounded-[1px]"
-                              style={{
-                                background: i % 3 === 0 ? 'rgba(0,212,255,0.3)' : 'rgba(0,102,255,0.12)',
-                              }}
-                            />
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  {/* Cross symbol on building */}
-                  <div className="absolute top-5 right-5 w-10 h-10 rounded-lg bg-[#0066FF]/20 border border-[#0066FF]/30 flex items-center justify-center">
+
+                  {/* Medical cross symbol on building */}
+                  <div className="absolute top-4 right-4 w-10 h-10 rounded-lg bg-[#0066FF]/25 border border-[#0066FF]/35 flex items-center justify-center backdrop-blur-sm">
                     <Stethoscope className="w-5 h-5 text-[#00D4FF]" />
                   </div>
+
+                  {/* Holographic heartbeat line */}
+                  <svg
+                    className="absolute bottom-6 left-0 w-full opacity-30"
+                    viewBox="0 0 300 20"
+                    fill="none"
+                    preserveAspectRatio="none"
+                  >
+                    <path
+                      d="M0 10 L60 10 L72 10 L78 2 L86 18 L92 6 L98 14 L104 10 L160 10 L172 10 L178 3 L186 17 L192 7 L198 13 L204 10 L300 10"
+                      stroke="rgba(0,212,255,0.7)"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+
                   {/* Bottom gradient fade into card content */}
-                  <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[rgba(255,255,255,0.05)] to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0A0E27]/95 to-transparent" />
                 </div>
 
                 {/* Card info bar */}
                 <div className="p-5 flex items-center justify-between">
                   <div>
-                    <h3 className="font-bold text-white text-sm">Sparsh Gynecology Hospital</h3>
+                    <h3 className="font-bold text-white text-sm">Sparsh Women&apos;s Hospital</h3>
                     <p className="text-xs text-white/40 mt-0.5">
                       Bangalore, India
                     </p>
