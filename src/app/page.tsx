@@ -10,6 +10,7 @@ import StatsSection from '@/components/hospital/StatsSection';
 import TestimonialsSection from '@/components/hospital/TestimonialsSection';
 import ContactSection from '@/components/hospital/ContactSection';
 import AppointmentBookingSection from '@/components/hospital/AppointmentBookingSection';
+import WhyChooseSection from '@/components/hospital/WhyChooseSection';
 import Footer from '@/components/hospital/Footer';
 
 export default function Home() {
@@ -27,6 +28,7 @@ export default function Home() {
         <SpecialitiesSection />
         <DoctorsSection />
         <StatsSection />
+        <WhyChooseSection />
         <TestimonialsSection />
         <AppointmentBookingSection />
         <ContactSection />
