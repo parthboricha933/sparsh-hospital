@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, ArrowUp, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowUp, Facebook, Twitter, Instagram, Linkedin, Youtube, ShieldCheck } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 const quickLinkKeys = [
@@ -160,6 +160,10 @@ export default function Footer() {
             <a href="#" className="hover:text-white/50 transition-colors">{t('footer.privacyPolicy')}</a>
             <a href="#" className="hover:text-white/50 transition-colors">{t('footer.termsOfService')}</a>
             <a href="#" className="hover:text-white/50 transition-colors">{t('footer.cookiePolicy')}</a>
+            <a href="/admin" className="flex items-center gap-1 hover:text-[#00D4FF]/50 transition-colors">
+              <ShieldCheck className="w-3 h-3" />
+              Admin
+            </a>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, ShieldCheck } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function Navbar() {
@@ -71,6 +71,14 @@ export default function Navbar() {
 
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-4">
+              <a
+                href="/admin"
+                className="flex items-center gap-1.5 text-xs text-white/30 hover:text-[#00D4FF]/60 transition-colors duration-300"
+                title="Admin Login"
+              >
+                <ShieldCheck className="w-3.5 h-3.5" />
+                <span>Admin</span>
+              </a>
               <a
                 href="tel:+911234567890"
                 className="flex items-center gap-2 text-sm text-white/70 hover:text-[#00D4FF] transition-colors duration-300"
@@ -163,6 +171,14 @@ export default function Navbar() {
                   >
                     <Phone className="w-4 h-4" />
                     {t('nav.emergencyFull')}
+                  </a>
+                  <a
+                    href="/admin"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center justify-center gap-1.5 text-xs text-white/25 hover:text-[#00D4FF]/50 transition-colors pt-2 border-t border-white/5"
+                  >
+                    <ShieldCheck className="w-3 h-3" />
+                    Admin Login
                   </a>
                 </div>
               </div>
