@@ -12,7 +12,6 @@ import {
   Clock,
   MessageSquare,
   Stethoscope,
-  Video,
   ShieldCheck,
   Zap,
   AlertCircle,
@@ -640,50 +639,6 @@ export default function AppointmentBookingSection() {
                     {t('appt.emergencyLine')}
                   </span>
                 </div>
-              </div>
-            </div>
-
-            {/* ── Online Consultation Badge ── */}
-            <div className="glass-card p-6 sm:p-7 relative overflow-hidden group hover:shadow-[0_0_30px_rgba(0,212,255,0.1)] transition-shadow duration-500">
-              {/* Cyan accent top */}
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#00D4FF]/40 to-transparent" />
-
-              {/* Subtle glow */}
-              <div className="absolute -bottom-8 -left-8 w-28 h-28 rounded-full bg-[#00D4FF]/[0.06] group-hover:bg-[#00D4FF]/[0.1] transition-all duration-500" />
-
-              <div className="relative z-10">
-                {/* Video icon */}
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#00D4FF]/20 to-[#0066FF]/10 border border-[#00D4FF]/20 flex items-center justify-center mb-5 shadow-[0_0_20px_rgba(0,212,255,0.1)]">
-                  <Video className="w-7 h-7 text-[#00D4FF]" />
-                </div>
-
-                <h3 className="text-lg font-bold text-white">
-                  {t('appt.onlineTitle')}
-                </h3>
-                <p className="text-white/45 text-sm mt-2 leading-relaxed">
-                  {t('appt.onlineDesc')}
-                </p>
-
-                {/* Features list */}
-                <div className="mt-4 space-y-2.5">
-                  {['appt.feature1', 'appt.feature2', 'appt.feature3'].map((featureKey) => (
-                    <div
-                      key={featureKey}
-                      className="flex items-center gap-2 text-sm text-white/55"
-                    >
-                      <div className="w-5 h-5 rounded-md bg-[#00D4FF]/10 flex items-center justify-center flex-shrink-0">
-                        <CheckCircle className="w-3 h-3 text-[#00D4FF]" />
-                      </div>
-                      {t(featureKey)}
-                    </div>
-                  ))}
-                </div>
-
-                {/* CTA */}
-                <button className="mt-5 w-full py-3 rounded-xl bg-gradient-to-r from-[#00D4FF]/10 to-[#0066FF]/10 border border-[#00D4FF]/20 text-[#00D4FF] font-semibold text-sm hover:border-[#00D4FF]/40 hover:shadow-[0_0_20px_rgba(0,212,255,0.1)] transition-all duration-300 flex items-center justify-center gap-2">
-                  <Video className="w-4 h-4" />
-                  {t('appt.startConsult')}
-                </button>
               </div>
             </div>
 
