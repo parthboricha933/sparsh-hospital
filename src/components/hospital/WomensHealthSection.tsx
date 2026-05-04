@@ -236,7 +236,7 @@ export default function WomensHealthSection() {
                   <img
                     src="/dr-vijay-ladumor.jpeg"
                     alt="Dr. Vijay J. Ladumor"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                   />
                   {/* Pulse ring */}
                   <motion.div

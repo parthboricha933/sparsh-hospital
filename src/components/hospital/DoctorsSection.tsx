@@ -23,7 +23,7 @@ const doctors = [
     isFounder: false,
     gradientFrom: '#00E5FF',
     gradientTo: '#0066FF',
-    photo: null,
+    photo: '/dr-parita-baldaniya.jpeg',
   },
 ];
 
@@ -96,7 +96,7 @@ export default function DoctorsSection() {
                     <img
                       src={doc.photo}
                       alt={doc.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-top"
                     />
                   ) : (
                     <User className="w-10 h-10 text-[#00D4FF]" />
