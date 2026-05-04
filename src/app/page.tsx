@@ -9,6 +9,7 @@ import DoctorsSection from '@/components/hospital/DoctorsSection';
 import StatsSection from '@/components/hospital/StatsSection';
 import TestimonialsSection from '@/components/hospital/TestimonialsSection';
 import ContactSection from '@/components/hospital/ContactSection';
+import AppointmentBookingSection from '@/components/hospital/AppointmentBookingSection';
 import Footer from '@/components/hospital/Footer';
 
 export default function Home() {
@@ -27,6 +28,7 @@ export default function Home() {
         <DoctorsSection />
         <StatsSection />
         <TestimonialsSection />
+        <AppointmentBookingSection />
         <ContactSection />
       </main>
       <Footer />

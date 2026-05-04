@@ -131,7 +131,7 @@ export default function HeroSection() {
             >
               {/* Primary: Book Appointment */}
               <a
-                href="#contact"
+                href="#appointment"
                 className="btn-glow group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-gradient-to-r from-[#0066FF] to-[#0044CC] text-white font-semibold text-base sm:text-lg transition-all duration-300"
               >
                 Book Appointment

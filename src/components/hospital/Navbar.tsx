@@ -9,6 +9,7 @@ const navLinks = [
   { name: 'About', href: '#about' },
   { name: 'Services', href: '#specialities' },
   { name: 'Doctors', href: '#doctors' },
+  { name: 'Appointment', href: '#appointment' },
   { name: 'Testimonials', href: '#testimonials' },
   { name: 'Contact', href: '#contact' },
 ];
@@ -74,7 +75,7 @@ export default function Navbar() {
                 <span>Emergency</span>
               </a>
               <a
-                href="#contact"
+                href="#appointment"
                 className="btn-glow px-5 py-2.5 rounded-full bg-gradient-to-r from-[#0066FF] to-[#0044CC] text-white text-sm font-semibold"
               >
                 Book Appointment
@@ -143,7 +144,7 @@ export default function Navbar() {
                 </div>
                 <div className="mt-auto flex flex-col gap-3">
                   <a
-                    href="#contact"
+                    href="#appointment"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="btn-glow w-full text-center py-3 rounded-full bg-gradient-to-r from-[#0066FF] to-[#0044CC] text-white font-semibold"
                   >
