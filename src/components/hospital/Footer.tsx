@@ -9,8 +9,8 @@ const quickLinkKeys = [
   { key: 'footer.home', href: '#home' },
   { key: 'footer.aboutUs', href: '#about' },
   { key: 'footer.services', href: '#specialities' },
+  { key: 'footer.womensHealth', href: '#womens-health' },
   { key: 'footer.ourDoctors', href: '#doctors' },
-  { key: 'footer.testimonials', href: '#testimonials' },
   { key: 'footer.bookAppt', href: '#contact' },
 ];
 

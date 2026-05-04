@@ -31,12 +31,12 @@ const departmentKeys = [
 ];
 
 const doctorsByDepartmentKey: Record<string, string[]> = {
-  'dept.obstetrics': ['Dr. Vijay Ladumor', 'Dr. Ananya Sharma'],
-  'dept.surgery': ['Dr. Vijay Ladumor', 'Dr. Priya Menon'],
-  'dept.fertility': ['Dr. Kavitha Reddy'],
-  'dept.oncology': ['Dr. Meera Patel'],
-  'dept.menopause': ['Dr. Ritu Kapoor'],
-  'dept.general': ['Dr. Vijay Ladumor', 'Dr. Ananya Sharma', 'Dr. Priya Menon'],
+  'dept.obstetrics': ['Dr. Vijay J. Ladumor', 'Dr. Parita Baldaniya'],
+  'dept.surgery': ['Dr. Vijay J. Ladumor'],
+  'dept.fertility': ['Dr. Vijay J. Ladumor'],
+  'dept.oncology': ['Dr. Vijay J. Ladumor'],
+  'dept.menopause': ['Dr. Parita Baldaniya'],
+  'dept.general': ['Dr. Vijay J. Ladumor', 'Dr. Parita Baldaniya'],
 };
 
 const timeSlots = [

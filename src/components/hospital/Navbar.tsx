@@ -14,9 +14,9 @@ export default function Navbar() {
     { name: t('nav.home'), href: '#home' },
     { name: t('nav.about'), href: '#about' },
     { name: t('nav.services'), href: '#specialities' },
+    { name: t('nav.womensHealth'), href: '#womens-health' },
     { name: t('nav.doctors'), href: '#doctors' },
     { name: t('nav.appointment'), href: '#appointment' },
-    { name: t('nav.testimonials'), href: '#testimonials' },
     { name: t('nav.contact'), href: '#contact' },
   ];
 

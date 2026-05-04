@@ -23,6 +23,7 @@ export const translations: Translations = {
   'nav.doctors': { en: 'Doctors', gu: 'ડોક્ટરો' },
   'nav.appointment': { en: 'Appointment', gu: 'એપોઇન્ટમેન્ટ' },
   'nav.testimonials': { en: 'Testimonials', gu: 'પ્રશંસાપત્રો' },
+  'nav.womensHealth': { en: "Women's Care", gu: 'મહિલા સંભાળ' },
   'nav.contact': { en: 'Contact', gu: 'સંપર્ક' },
   'nav.emergency': { en: 'Emergency', gu: 'ઈમરજન્સી' },
   'nav.bookAppointment': { en: 'Book Appointment', gu: 'એપોઇન્ટમેન્ટ બુક કરો' },
@@ -107,13 +108,65 @@ export const translations: Translations = {
   'docs.heading': { en: 'Expert Gynecology Specialists', gu: 'નિષ્ણાત ગાયનેકોલોજી વિશેષજ્ઞો' },
   'docs.description': { en: 'Our team of renowned gynecologists and obstetricians brings decades of experience and a commitment to delivering the best possible outcomes for every woman.', gu: 'પ્રસિદ્ધ ગાયનેકોલોજિસ્ટ્સ અને ઓબ્સ્ટેટ્રિશિયન્સની અમારી ટીમ દાયકાઓનો અનુભવ અને દરેક સ્ત્રી માટે શ્રેષ્ઠ પરિણામો આપવાની પ્રતિબદ્ધતા લાવે છે.' },
   'docs.exp': { en: 'Experience', gu: 'અનુભવ' },
-  'docs.doc1Spec': { en: 'Founder & Chief Gynecologist', gu: 'સ્થાપક અને મુખ્ય ગાયનેકોલોજિસ્ટ' },
-  'docs.doc2Spec': { en: 'Obstetrics & High-Risk Pregnancy', gu: 'પ્રસૂતિ અને ઉચ્ચ-જોખમ ગર્ભાવસ્થા' },
-  'docs.doc3Spec': { en: 'Laparoscopic & Robotic Surgery', gu: 'લેપરોસ્કોપિક અને રોબોટિક સર્જરી' },
-  'docs.doc4Spec': { en: 'Fertility & IVF Specialist', gu: 'ફર્ટિલિટી અને IVF વિશેષજ્ઞ' },
-  'docs.doc5Spec': { en: 'Gynecologic Oncology', gu: 'ગાયનેકોલોજિક ઓન્કોલોજી' },
-  'docs.doc6Spec': { en: 'Menopause & Wellness', gu: 'મેનોપોઝ અને વેલનેસ' },
-  'docs.doc7Spec': { en: 'Maternal-Fetal Medicine', gu: 'મેટર્નલ-ફીટલ મેડિસિન' },
+  'docs.founder': { en: 'Founder', gu: 'સ્થાપક' },
+  'docs.doc1Spec': { en: 'Gynecology Specialist & Maternity Consultant', gu: 'ગાયનેકોલોજી વિશેષજ્ઞ અને માતૃત્વ સલાહકાર' },
+  'docs.doc2Spec': { en: 'Homeopathy Specialist', gu: 'હોમિયોપેથી વિશેષજ્ઞ' },
+
+  // ─── Women's Health Section ───
+  'womens.subtitle': { en: 'Specialized Care Centre', gu: 'વિશેષ સંભાળ કેન્દ્ર' },
+  'womens.heading': { en: "Advanced Women's Health, Pregnancy & Fertility Care", gu: 'અદ્યતન મહિલા સ્વાસ્થ્ય, ગર્ભાવસ્થા અને ફર્ટિલિટી સંભાળ' },
+  'womens.description': { en: 'Comprehensive gynecological care combining advanced medical technology with compassionate, patient-first treatment — trusted by thousands of women across the Rajula region.', gu: 'અદ્યતન તબીબી તકનીકને કરુણામય, દર્દી-પ્રથમ સારવાર સાથે જોડીને વ્યાપક ગાયનેકોલોજીકલ સંભાળ — રાજુલા પ્રદેશમાં હજારો મહિલાઓ દ્વારા વિશ્વસનીય.' },
+
+  // Doctor Card
+  'womens.docName': { en: 'Dr. Vijay J. Ladumor', gu: 'ડૉ. વિજય જે. લાડુમોર' },
+  'womens.docDegree': { en: 'M.B.D.G.O', gu: 'M.B.D.G.O' },
+  'womens.docSpecialty1': { en: 'Gynecology Specialist', gu: 'ગાયનેકોલોજી વિશેષજ્ઞ' },
+  'womens.docSpecialty2': { en: 'Maternity Consultant', gu: 'માતૃત્વ સલાહકાર' },
+  'womens.docSpecialty3': { en: 'Test Tube Baby Centre Consultant', gu: 'ટેસ્ટ ટ્યુબ બેબી સેન્ટર સલાહકાર' },
+  'womens.docYears': { en: 'Years', gu: 'વર્ષો' },
+  'womens.docDeliveries': { en: 'Deliveries', gu: 'ડિલિવરીઓ' },
+
+  // Specialty Tabs
+  'womens.tabObstetrics': { en: 'Obstetrics Care', gu: 'પ્રસૂતિ સંભાળ' },
+  'womens.tabObstetricsDesc': { en: 'Complete prenatal to postnatal care including normal and high-risk pregnancy management, natural birthing support, and dedicated delivery rooms ensuring safe motherhood for every woman who trusts us with her journey.', gu: 'સામાન્ય અને ઉચ્ચ-જોખમ ગર્ભાવસ્થા વ્યવસ્થાપન, કુદરતી પ્રસવ સહાય અને સમર્પિત ડિલિવરી રૂમ્સ સહિત પ્રસૂતિ પૂર્વેથી પ્રસૂતિ પછીની સંપૂર્ણ સંભાળ, અમને તેમની સફર સોંપનારી દરેક મહિલા માટે સુરક્ષિત માતૃત્વ સુનિશ્ચિત કરી.' },
+  'womens.tabSonography': { en: 'Sonography', gu: 'સોનોગ્રાફી' },
+  'womens.tabSonographyDesc': { en: 'Advanced 3D/4D fetal sonography and comprehensive ultrasound diagnostics for precise monitoring of fetal development, early detection of complications, and complete pregnancy tracking from first trimester to delivery.', gu: 'ભ્રૂણના વિકાસનું ચોક્સાઈપૂર્વક મોનિટરિંગ, ગૂંચવણોની વહેલી શોધ અને પ્રથમ ત્રિમાસિકથી ડિલિવરી સુધી સંપૂર્ણ ગર્ભાવસ્થા ટ્રેકિંગ માટે અદ્યતન 3D/4D ફીટલ સોનોગ્રાફી અને વ્યાપક અલ્ટ્રાસાઉન્ડ ડાયગ્નોસ્ટિક્સ.' },
+  'womens.tabLaparoscopy': { en: 'Laparoscopy', gu: 'લેપરોસ્કોપી' },
+  'womens.tabLaparoscopyDesc': { en: 'Minimally invasive advanced laparoscopic surgeries for fibroids, ovarian cysts, endometriosis, and hysterectomy — offering faster recovery, smaller incisions, reduced pain, and better surgical outcomes for every patient.', gu: 'ફાઈબ્રોઇડ્સ, અંડાશય સિસ્ટ, એન્ડોમેટ્રિઓસિસ અને હિસ્ટેરેક્ટમી માટે મિનિમલી ઈન્વેસિવ અદ્યતન લેપરોસ્કોપિક સર્જરી — દરેક દર્દી માટે ઝડપી સુધારો, નાના ઈન્સિઝન, ઓછો દુખાવો અને વધુ સારા સર્જિકલ પરિણામો.' },
+  'womens.tabInfertility': { en: 'Infertility Solutions', gu: 'વંધ્યત્વ ઉકેલો' },
+  'womens.tabInfertilityDesc': { en: 'Complete infertility evaluation and treatment including IVF guidance, IUI support, male infertility diagnosis, and natural conception counselling — providing hope and proven results for couples seeking to start their family.', gu: 'IVF માર્ગદર્શન, IUI સહાય, પુરુષ વંધ્યત્વ નિદાન અને કુદરતી ગર્ભધારણ પરામર્શ સહિત સંપૂર્ણ વંધ્યત્વ મૂલ્યાંકન અને સારવાર — પરિવાર શરૂ કરવા માંગતા દંપતીઓ માટે આશા અને સાબિત પરિણામો પ્રદાન કરી.' },
+
+  // Facilities
+  'womens.facSubtitle': { en: 'Comprehensive Facilities', gu: 'વ્યાપક સુવિધાઓ' },
+  'womens.facHeading': { en: 'Hospital Facilities & Services', gu: 'હોસ્પિટલ સુવિધાઓ અને સેવાઓ' },
+  'womens.fac1': { en: 'Complete Prenatal Care', gu: 'સંપૂર્ણ પ્રસૂતિ પૂર્વ સંભાળ' },
+  'womens.fac2': { en: 'Normal, Vacuum & Caesarean Delivery', gu: 'સામાન્ય, વેક્યુમ અને સિઝેરિયન ડિલિવરી' },
+  'womens.fac3': { en: 'Advanced Laparoscopic Surgeries', gu: 'અદ્યતન લેપરોસ્કોપિક સર્જરીઓ' },
+  'womens.fac4': { en: 'Pre-Pregnancy Counselling', gu: 'ગર્ભાવસ્થા પૂર્વે પરામર્શ' },
+  'womens.fac5': { en: 'All Women Disease Diagnosis & Treatment', gu: 'તમામ મહિલા રોગો નિદાન અને સારવાર' },
+  'womens.fac6': { en: 'High Risk Pregnancy Management', gu: 'ઉચ્ચ જોખમ ગર્ભાવસ્થા વ્યવસ્થાપન' },
+  'womens.fac7': { en: '3D/4D Fetal Sonography', gu: '3D/4D ફીટલ સોનોગ્રાફી' },
+  'womens.fac8': { en: 'Complete Infertility Treatment', gu: 'સંપૂર્ણ વંધ્યત્વ સારવાર' },
+  'womens.fac9': { en: 'Natural Conception & IVF Guidance', gu: 'કુદરતી ગર્ભધારણ અને IVF માર્ગદર્શન' },
+  'womens.fac10': { en: 'IUI Treatment Support', gu: 'IUI સારવાર સહાય' },
+  'womens.fac11': { en: 'Male Infertility Diagnosis', gu: 'પુરુષ વંધ્યત્વ નિદાન' },
+  'womens.fac12': { en: 'Menstrual & White Discharge Disorder Treatment', gu: 'માસિક અને સફેદ સ્ત્રાવ વિકાર સારવાર' },
+  'womens.fac13': { en: 'PAP SMEAR Cervical Cancer Screening', gu: 'પેપ સ્મીઅર સર્વાઈકલ કેન્સર સ્ક્રીનિંગ' },
+  'womens.fac14': { en: 'Family Planning Consultation', gu: 'કુટુંબ નિયોજન પરામર્શ' },
+  'womens.fac15': { en: 'Mediclaim Support', gu: 'મેડિક્લેમ સહાય' },
+  'womens.fac16': { en: 'Laboratory Facilities', gu: 'લેબોરેટરી સુવિધાઓ' },
+
+  // Achievement Counters
+  'womens.counterSubtitle': { en: 'Our Achievements', gu: 'અમારી સિદ્ધિઓ' },
+  'womens.counterHeading': { en: 'Trusted Numbers That Speak', gu: 'વિશ્વાસપાત્ર આંકડા જે બોલે છે' },
+  'womens.counterDeliveries': { en: 'Successful Deliveries', gu: 'સફળ ડિલિવરીઓ' },
+  'womens.counterSurgeries': { en: 'Complex Gynecology Surgeries', gu: 'જટિલ ગાયનેકોલોજી સર્જરીઓ' },
+  'womens.counterOPD': { en: 'OPD Consultations', gu: 'OPD કન્સલ્ટેશન' },
+  'womens.counterFertility': { en: 'Fertility Procedures', gu: 'ફર્ટિલિટી પ્રક્રિયાઓ' },
+
+  // Trust Statement
+  'womens.trustStatement': { en: 'Serving mothers with safe pregnancy care and successful deliveries across Rajula region.', gu: 'રાજુલા પ્રદેશમાં સુરક્ષિત ગર્ભાવસ્થા સંભાળ અને સફળ ડિલિવરીઓ સાથે માતાઓની સેવા કરી રહ્યા છીએ.' },
+  'womens.trustBadge': { en: 'Trusted Care Since 2017', gu: '2017 થી વિશ્વસનીય સંભાળ' },
 
   // ─── Stats Section ───
   'stats.subtitle': { en: 'Our Impact', gu: 'અમારી અસર' },
@@ -249,6 +302,7 @@ export const translations: Translations = {
   'footer.services': { en: 'Services', gu: 'સેવાઓ' },
   'footer.ourDoctors': { en: 'Our Doctors', gu: 'અમારા ડોક્ટરો' },
   'footer.testimonials': { en: 'Testimonials', gu: 'પ્રશંસાપત્રો' },
+  'footer.womensHealth': { en: "Women's Care", gu: 'મહિલા સંભાળ' },
   'footer.bookAppt': { en: 'Book Appointment', gu: 'એપોઇન્ટમેન્ટ બુક કરો' },
   'footer.ourServices': { en: 'Our Services', gu: 'અમારી સેવાઓ' },
   'footer.contactInfo': { en: 'Contact Info', gu: 'સંપર્ક માહિતી' },
