@@ -620,12 +620,12 @@ export default function AppointmentBookingSection() {
 
                 {/* Phone number */}
                 <a
-                  href="tel:+911234567890"
+                  href="tel:+919574243674"
                   className="mt-5 flex items-center gap-3 px-5 py-3.5 rounded-xl bg-red-500/10 border border-red-500/20 text-red-300 hover:text-white hover:border-red-400/50 hover:bg-red-500/20 transition-all duration-300 group/phone"
                 >
                   <Phone className="w-4.5 h-4.5 animate-pulse" />
                   <span className="font-bold text-base tracking-wide">
-                    +91 123 456 7890
+                    +91 9574243674
                   </span>
                 </a>
 

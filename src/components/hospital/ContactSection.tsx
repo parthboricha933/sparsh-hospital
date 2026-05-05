@@ -18,7 +18,7 @@ const contactInfoKeys = [
   {
     icon: Phone,
     labelKey: 'contact.emergency',
-    value: '+91 123 456 7890',
+    value: '+91 9574243674',
     sublabelKey: 'contact.available247',
   },
   {

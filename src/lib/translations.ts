@@ -27,7 +27,7 @@ export const translations: Translations = {
   'nav.contact': { en: 'Contact', gu: 'સંપર્ક' },
   'nav.emergency': { en: 'Emergency', gu: 'ઈમરજન્સી' },
   'nav.bookAppointment': { en: 'Book Appointment', gu: 'એપોઇન્ટમેન્ટ બુક કરો' },
-  'nav.emergencyFull': { en: 'Emergency: +91 123 456 7890', gu: 'ઈમરજન્સી: +91 123 456 7890' },
+  'nav.emergencyFull': { en: 'Emergency: +91 9574243674', gu: 'ઈમરજન્સી: +91 9574243674' },
 
   // ─── Hero Section ───
   'hero.trustBadge': { en: 'ISO Certified  ·  Gynecology Excellence  ·  Patient Safety Focus', gu: 'ISO પ્રમાણિત  ·  ગાયનેકોલોજી ઉત્કૃષ્ટતા  ·  દર્દી સુરક્ષા ધ્યાન' },

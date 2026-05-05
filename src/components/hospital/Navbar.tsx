@@ -79,7 +79,7 @@ export default function Navbar() {
                 <span>Admin</span>
               </a>
               <a
-                href="tel:+911234567890"
+                href="tel:+919574243674"
                 className="flex items-center gap-2 text-sm text-white/70 hover:text-[#00D4FF] transition-colors duration-300"
               >
                 <Phone className="w-4 h-4" />
@@ -165,7 +165,7 @@ export default function Navbar() {
                     {t('nav.contact')}
                   </a>
                   <a
-                    href="tel:+911234567890"
+                    href="tel:+919574243674"
                     className="flex items-center justify-center gap-2 text-sm text-white/70 hover:text-[#00D4FF] transition-colors"
                   >
                     <Phone className="w-4 h-4" />

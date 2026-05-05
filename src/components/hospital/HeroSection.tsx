@@ -133,7 +133,7 @@ export default function HeroSection() {
 
               {/* Secondary: Emergency Help */}
               <a
-                href="tel:+911234567890"
+                href="tel:+919574243674"
                 className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full border border-red-400/30 bg-red-500/10 text-red-300 hover:text-white hover:border-red-400/60 hover:bg-red-500/20 font-semibold text-base sm:text-lg transition-all duration-300"
               >
                 <Phone className="w-5 h-5 animate-pulse" />
